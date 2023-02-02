@@ -1,6 +1,5 @@
-import { useNavigation } from "@react-navigation/native";
-import React, { useContext } from "react";
-import { View, Text, TouchableOpacity, Image, StyleSheet } from "react-native";
+import React from "react";
+import { View, Text, Image, StyleSheet } from "react-native";
 import Colors from "../../assets/Colors";
 import Spacer from "./Spacer";
 

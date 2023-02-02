@@ -6,6 +6,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 
 import Colors from '../../assets/Colors';
 import Completion from "../components/Completion";
+import Paragraph from "../components/Paragraph";
 import Spacer from "../components/Spacer";
 import Languages from '../languages';
 import LanguageContext from '../languages/languageContext';
@@ -19,7 +20,7 @@ const PaymentScreen: React.FC = () => {
         <SafeAreaView style={styles.container}>
             <View style={styles.innerContainer}>
                 <Completion image={require('../../assets/payment.jpg')} imageStyle={styles.image} text={Strings.ST23} textStyle={styles.heading} />
-                <Text style={styles.text}> {Strings.ST22} </Text>
+                <Paragraph paragraphStyle={styles.text} paragraphText={Strings.ST22} />  
             </View>
         </SafeAreaView>
     )
