@@ -24,6 +24,7 @@ import SupportScreen from './src/screens/SupportScreen';
 import ProfileScreen from './src/screens/ProfileScreen';
 import SettingsScreen from './src/screens/SettingsScreen';
 import PaymentScreen from './src/screens/PaymentScreen';
+import Notification from './src/screens/NotificationScreen';
 
 type RootStackParamList = {
   FeedScreen: undefined;
@@ -31,28 +32,31 @@ type RootStackParamList = {
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 
-const size = 30;
+const size = 25;
 const color = Colors.orange;
 
-const Root:React.FC = () => {
+const Root: React.FC = () => {
+  const navigation = useNavigation();
   return (
     <Drawer.Navigator
       initialRouteName='Feed'
       screenOptions={({ navigation }) => ({
-        headerLeft: () => <Feather name='menu' size={size} color={color} onPress={navigation.toggleDrawer} />
+        headerLeft: () => <Feather name='menu' size={size} color={color} style={{ marginLeft: 10 }} onPress={navigation.toggleDrawer} />
       })}
-      
+
     >
       <Drawer.Screen name='Feed' component={FeedScreen} options={{
+
         headerTitle: "tutoruu", headerRight: () => [<View style={styles.icon} >
           <TouchableOpacity>
-            <FontAwesome name="bell-o" size={size} color={color} />
+            <FontAwesome name="bell-o" size={size} color={color} style={{ marginHorizontal: 10 }} onPress={() => navigation.navigate('Notification')} />
           </TouchableOpacity>
           <TouchableOpacity>
             <FontAwesome name="search" size={size} color={color} />
           </TouchableOpacity>
         </View>
         ]
+
       }} />
       <Drawer.Screen name='Profile' component={ProfileScreen} options={{
         drawerIcon: ({ focused, size }) => (
@@ -114,6 +118,7 @@ const App: React.FC = () => {
           }} />
           <Stack.Screen name='Root' component={Root} options={{ headerShown: (false) }} />
           <Stack.Screen name='Payment' component={PaymentScreen} />
+          <Stack.Screen name='Notification' component={Notification} options={{headerShown:(false)}} />
         </Stack.Navigator>
       </NavigationContainer>
     </TailwindProvider>
@@ -130,6 +135,7 @@ const styles = StyleSheet.create({
   },
   icon: {
     flexDirection: 'row',
+    marginRight: 10
   },
 });
 

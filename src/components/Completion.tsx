@@ -4,14 +4,14 @@ import Colors from "../../assets/Colors";
 import Spacer from "./Spacer";
 
 
-const Completion: React.FC = ({ image, imageStyle, text, textStyle }) => {
+const Completion: React.FC = ({ image, text }) => {
 
     return (
         <View>
-            <Image source={image} style={imageStyle} />
-            <Spacer/>
-            <Text style={textStyle}> {text} </Text>
-            <Spacer/>
+            <Image source={image} style={styles.image} />
+            <Spacer />
+            <Text style={styles.heading}> {text} </Text>
+            <Spacer />
         </View>
     )
 }
@@ -22,6 +22,16 @@ const styles = StyleSheet.create({
         width: 106,
         alignSelf: 'center',
     },
+    text: {
+        color: Colors.black,
+        fontStyle: 'normal',
+        fontSize: 14,
+        fontWeight: '400',
+        lineHeight: 21,
+        textAlign: 'center',
+        width: 284,
+        alignSelf: 'center'
+    },
     heading: {
         color: Colors.orange,
         fontStyle: 'normal',
@@ -30,8 +40,7 @@ const styles = StyleSheet.create({
         lineHeight: 30,
         textAlign: 'center',
         textTransform: 'capitalize',
-
-    },
+    }
 })
 
 export default Completion

@@ -19,8 +19,8 @@ const PaymentScreen: React.FC = () => {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.innerContainer}>
-                <Completion image={require('../../assets/payment.jpg')} imageStyle={styles.image} text={Strings.ST23} textStyle={styles.heading} />
-                <Paragraph paragraphStyle={styles.text} paragraphText={Strings.ST22} />  
+                <Completion image={require('../../assets/payment.jpg')}  text={Strings.ST23} />
+                <Paragraph paragraphText={Strings.ST22} />  
             </View>
         </SafeAreaView>
     )
@@ -37,38 +37,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         margin: 10
     },
-    back: {
-        fontSize: 18,
-        marginLeft: 22
-    },
-    header: {
-        alignSelf: 'center',
-        marginLeft: '33%'
-    },
-    image: {
-        height: 106,
-        width: 106,
-        alignSelf: 'center',
-    },
-    heading: {
-        color: Colors.orange,
-        fontStyle: 'normal',
-        fontSize: 20,
-        fontWeight: '700',
-        lineHeight: 30,
-        textAlign: 'center',
-        textTransform: 'capitalize',
-
-    },
-    text: {
-        color: Colors.black,
-        fontStyle: 'normal',
-        fontSize: 14,
-        fontWeight: '400',
-        lineHeight: 21,
-        textAlign: 'center',
-        width: 284,
-        alignSelf: 'center'
-    }
+    
 });
 export default PaymentScreen
