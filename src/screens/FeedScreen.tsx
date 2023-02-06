@@ -82,14 +82,11 @@ const renderItem = ({ item }) => {
     </View>
   )
 }
-
-
 const FeedScreen: React.FC = ({ navigation }) => {
   const contextState = useContext(LanguageContext);
   const language = contextState.language;
   const Strings = Languages[language].texts;
-
-
+  
   const [selectedData, setSelectedData] = useState(Screen1);
   const [focused1, setFocused1] = useState(false);
   const [focused2, setFocused2] = useState(false);
