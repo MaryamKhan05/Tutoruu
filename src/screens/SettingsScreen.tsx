@@ -11,7 +11,11 @@ import { useTailwind } from "tailwind-rn/dist";
 import Header from "../components/Header";
 import SettingsComponent from "../components/Settings";
 
-const SettingsScreen: React.FC = ({ navigation }) => {
+interface Props{
+    navigation: any;
+}
+
+const SettingsScreen: React.FC<Props> = ({ navigation }) => {
     const contextState = useContext(LanguageContext);
     const language = contextState.language;
     const Strings = Languages[language].texts;

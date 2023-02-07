@@ -4,7 +4,12 @@ import Entypo from "react-native-vector-icons/Entypo";
 
 import Colors from '../../assets/Colors';
 
-const SettingsComponent: React.FC = ({ text, icon }) => {
+
+interface Props {
+    text: string;
+    icon: any;
+}
+const SettingsComponent: React.FC<Props> = ({ text, icon }) => {
     return (
         <TouchableOpacity style={styles.bg}>
             <View>{icon}</View>

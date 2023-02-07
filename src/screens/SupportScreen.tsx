@@ -7,7 +7,12 @@ import Languages from '../languages';
 import LanguageContext from '../languages/languageContext';
 import Btn from "../components/Button";
 
-const SupportScreen: React.FC = ({ navigation }) => {
+
+interface Props{
+    navigation: any;
+}
+
+const SupportScreen: React.FC<Props> = ({ navigation }) => {
     const contextState = useContext(LanguageContext);
     const language = contextState.language;
     const Strings = Languages[language].texts;
@@ -30,7 +35,7 @@ const SupportScreen: React.FC = ({ navigation }) => {
                 <TextInput placeholder="Doe.." style={styles.input} />
                 <Text style={styles.label}> {Strings.ST21} </Text>
                 <TextInput placeholder="Doe.." style={[styles.input, { height: 80, borderRadius: 20, paddingTop: 3 }]} />
-                <Btn text='Submit' route='Payment' />
+                <Btn text='Submit' route='Payment' width={93} height={33} />
             </View>
         </SafeAreaView>
     )

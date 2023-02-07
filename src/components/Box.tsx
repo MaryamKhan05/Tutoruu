@@ -3,20 +3,26 @@ import { View, Text, TouchableOpacity, StyleSheet, } from "react-native";
 import Colors from "../../assets/Colors";
 import Feather from 'react-native-vector-icons/Feather'
 import AntDesign from 'react-native-vector-icons/AntDesign'
-const Box: React.FC = ({ text }) => {
+
+
+interface Props {
+    text: string;
+}
+
+const Box: React.FC<Props> = ({ text }) => {
     return (
         // <View style={{ height: '100%', backgroundColor: 'white', justifyContent: 'center' }}>
-            <View style={styles.box}>
-                <View style={{ width: '20%', height: '100%', alignSelf: 'flex-start', justifyContent: 'center', alignItems: 'center' }}>
-                    <Feather name="gift" size={20} color={Colors.fadedgray} />
-                </View>
-                <View style={{ width: '60%', height: '100%', alignSelf: 'center', justifyContent: 'center' }}>
-                    <Text style={styles.text}>{text}</Text>
-                </View>
-                <TouchableOpacity style={{ width: '20%', height: '100%', alignSelf: 'flex-end', justifyContent: 'center', alignItems: 'center' }}>
-                    <AntDesign name="arrowright" size={20} color={Colors.orange} />
-                </TouchableOpacity>
+        <View style={styles.box}>
+            <View style={{ width: '20%', height: '100%', alignSelf: 'flex-start', justifyContent: 'center', alignItems: 'center' }}>
+                <Feather name="gift" size={20} color={Colors.fadedgray} />
             </View>
+            <View style={{ width: '60%', height: '100%', alignSelf: 'center', justifyContent: 'center' }}>
+                <Text style={styles.text}>{text}</Text>
+            </View>
+            <TouchableOpacity style={{ width: '20%', height: '100%', alignSelf: 'flex-end', justifyContent: 'center', alignItems: 'center' }}>
+                <AntDesign name="arrowright" size={20} color={Colors.orange} />
+            </TouchableOpacity>
+        </View>
         // </View>
     )
 }

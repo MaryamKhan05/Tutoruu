@@ -3,12 +3,18 @@ import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import Colors from "../../assets/Colors";
 
-const Btn:React.FC = ({ text, route, width, height }) => {
+interface Props {
+    text: string;
+    route: any;
+    width: number;
+    height: number;
+}
+
+const Btn: React.FC<Props> = ({ text, route, width, height }) => {
     const navigation = useNavigation();
     return (
-        <TouchableOpacity style={[styles.btnStyles,{width, height}]} onPress={() => navigation.navigate(route)} >
+        <TouchableOpacity style={[styles.btnStyles, { width, height }]} onPress={() => navigation.navigate(route)} >
             <Text style={styles.btnText} >{text}</Text>
-
         </TouchableOpacity>
     )
 };
@@ -16,7 +22,7 @@ const Btn:React.FC = ({ text, route, width, height }) => {
 const styles = StyleSheet.create({
     btnStyles: {
         backgroundColor: Colors.orange,
-       // width: 93,
+        // width: 93,
         height: 33,
         borderRadius: 999,
         alignItems: 'center',

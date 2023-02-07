@@ -1,25 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, SafeAreaView, TextInput, FlatList, Image } from 'react-native';
-import Feather from "react-native-vector-icons/Feather";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import EvilIcons from "react-native-vector-icons/EvilIcons";
-import AntDesign from "react-native-vector-icons/AntDesign";
-import FontAwesome from "react-native-vector-icons/FontAwesome";
-import Entypo from "react-native-vector-icons/Entypo";
-import { createDrawerNavigator } from '@react-navigation/drawer';
 
-import Colors from '../../assets/Colors';
 import Languages from '../languages';
 import LanguageContext from '../languages/languageContext';
-import AboutScreen from './AboutScreen';
-import SupportScreen from './SupportScreen';
-import ProfileScreen from './ProfileScreen';
-import SettingsScreen from './SettingsScreen';
 import { useTailwind } from 'tailwind-rn/dist';
+import ToggleButtons from '../components/ToggleButtons';
 
-const size = 30;
-const color = Colors.orange;
-const Drawer = createDrawerNavigator();
 
 const messageData = [
   {
@@ -48,26 +34,7 @@ const messageData = [
   },
 ]
 
-const Screen1: React.FC = () => {
-  return (
-    <Text>screen 1 </Text>
-  )
-}
-const Screen2: React.FC = () => {
-  return (
-    <Text>screen 2 </Text>
-  )
-}
-const Screen3: React.FC = () => {
-  return (
-    <Text>screen 3</Text>
-  )
-}
-const Screen4: React.FC = () => {
-  return (
-    <Text>screen 4 </Text>
-  )
-}
+
 const renderItem = ({ item }) => {
   return (
     <View style={styles.card}>
@@ -82,58 +49,20 @@ const renderItem = ({ item }) => {
     </View>
   )
 }
-const FeedScreen: React.FC = ({ navigation }) => {
+
+interface Props {
+  navigation: any;
+}
+const FeedScreen: React.FC<Props> = ({ navigation }) => {
   const contextState = useContext(LanguageContext);
   const language = contextState.language;
   const Strings = Languages[language].texts;
   
-  const [selectedData, setSelectedData] = useState(Screen1);
-  const [focused1, setFocused1] = useState(false);
-  const [focused2, setFocused2] = useState(false);
-  const [focused3, setFocused3] = useState(false);
-  const [focused4, setFocused4] = useState(false);
+ 
   const tw = useTailwind();
   return (
     <View>
-      <View style={{ flexDirection: 'row', backgroundColor: Colors.white }}>
-        <TouchableOpacity style={[styles.btn, { backgroundColor: focused1 ? Colors.lightorange : Colors.background }]} onPress={() => {
-          setSelectedData(Screen1);
-          setFocused1(true);
-          setFocused2(false);
-          setFocused3(false);
-          setFocused4(false);
-        }}>
-          <Text style={{ color: focused1 ? Colors.orange : Colors.black }} >Screen1 </Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={[styles.btn, { backgroundColor: focused2 ? Colors.lightorange : Colors.background }]} onPress={() => {
-          setSelectedData(Screen2);
-          setFocused1(false);
-          setFocused2(true);
-          setFocused3(false);
-          setFocused4(false);
-        }}>
-          <Text style={{ color: focused2 ? Colors.orange : Colors.black }}>Screen2 </Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={[styles.btn, { backgroundColor: focused3 ? Colors.lightorange : Colors.background }]} onPress={() => {
-          setSelectedData(Screen3);
-          setFocused1(false);
-          setFocused2(false);
-          setFocused3(true);
-          setFocused4(false);
-        }}>
-          <Text style={{ color: focused3 ? Colors.orange : Colors.black }}>Screen3 </Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={[styles.btn, { backgroundColor: focused4 ? Colors.lightorange : Colors.background }]} onPress={() => {
-          setSelectedData(Screen4);
-          setFocused1(false);
-          setFocused2(false);
-          setFocused3(false);
-          setFocused4(true);
-        }}>
-          <Text style={{ color: focused4 ? Colors.orange : Colors.black }}>Screen4</Text>
-        </TouchableOpacity>
-      </View>
-      <Text>{selectedData}</Text>
+      <ToggleButtons/>
       <FlatList
         showsVerticalScrollIndicator={false}
         data={messageData}

@@ -3,7 +3,11 @@ import React from 'react';
 import { View, Text, TouchableOpacity, SafeAreaView, StyleSheet, Image } from 'react-native';
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-const Header: React.FC = ({ headerTitle }) => {
+
+interface Props {
+    headerTitle: string;
+}
+const Header: React.FC<Props> = ({ headerTitle }) => {
     const navigation = useNavigation()
     return (
         <View style={{ flexDirection: 'row' }}>

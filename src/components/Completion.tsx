@@ -3,8 +3,12 @@ import { View, Text, Image, StyleSheet } from "react-native";
 import Colors from "../../assets/Colors";
 import Spacer from "./Spacer";
 
+interface Props {
+    text: string;
+    image: any;
+}
 
-const Completion: React.FC = ({ image, text }) => {
+const Completion: React.FC<Props> = ({ image, text }) => {
 
     return (
         <View>

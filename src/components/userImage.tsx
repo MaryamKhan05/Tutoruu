@@ -1,10 +1,15 @@
 import React from "react";
 import { Text, View, Image, StyleSheet } from 'react-native'
 
-const UserImage: React.FC = () => {
+
+interface Props {
+    width: number;
+    height: number;
+}
+const UserImage: React.FC<Props> = ({ width, height }) => {
     return (
         <View style={styles.imageContainer}>
-            <Image source={{ uri: 'https://www.bootdey.com/img/Content/avatar/avatar3.png' }} style={styles.image} />
+            <Image source={{ uri: 'https://www.bootdey.com/img/Content/avatar/avatar3.png' }} style={[styles.image, { width, height }]} />
         </View>
     )
 }
@@ -16,8 +21,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     image: {
-        width: 80,
-        height: 80,
+        // width: 80,
+        // height: 80,
         borderRadius: 40,
         // marginLeft: 10,
         marginRight: 5

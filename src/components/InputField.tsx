@@ -2,7 +2,14 @@ import React from "react";
 import { Text, View, TextInput, StyleSheet } from 'react-native'
 import Colors from "../../assets/Colors";
 
-const Field: React.FC = ({ height, borderRadius, width }) => {
+
+interface Props {
+    height: number;
+    width: number;
+    borderRadius: number;
+
+}
+const Field: React.FC<Props> = ({ height, borderRadius, width }) => {
     return (
         <View>
             <TextInput
@@ -20,7 +27,7 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         borderColor: Colors.gray,
         padding: 10,
-        margin:5
+        margin: 5
         // width: '90%',
         // alignSelf: 'center'
     },

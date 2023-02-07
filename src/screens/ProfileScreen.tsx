@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import { View, StyleSheet, SafeAreaView, ScrollView } from 'react-native';
-
+import { View, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native';
+import Feather from "react-native-vector-icons/Feather"
 import Colors from "../../assets/Colors";
 import Box from "../components/Box";
 import Divider from "../components/Divider";
@@ -13,7 +13,14 @@ import User from "../components/UserProfile";
 import Languages from '../languages';
 import LanguageContext from '../languages/languageContext';
 import UserImage from "../components/userImage";
-const ProfileScreen: React.FC = () => {
+import Auc from "../components/Auc";
+
+interface Props {
+    navigation: any;
+    }
+
+
+const ProfileScreen: React.FC<Props> = ({ navigation }) => {
     const contextState = useContext(LanguageContext);
     const language = contextState.language;
     const Strings = Languages[language].texts;
@@ -23,11 +30,17 @@ const ProfileScreen: React.FC = () => {
             <ScrollView showsVerticalScrollIndicator={false} style={styles.innerContainer} >
                 <Header headerTitle={Strings.ST30} />
                 <Spacer />
-                <View style={{flexDirection:'row'}}>
-                    <UserImage />
-                    <User followers={Strings.ST32} />
+                <View style={styles.userProfileContainer}>
+                    <UserImage width={80} height={80} />
+                    <View style={{ flexDirection: 'column', width: '50%', marginTop: 15, marginLeft: 5 }}>
+                        <Auc text="AUC" height={30} width={50} />
+                        <User followers={Strings.ST32} route={'Followers'} />
+                    </View>
+                    <TouchableOpacity style={styles.iconContainer} onPress={() => navigation.navigate('Edit')}>
+                        <Feather name="edit" size={20} color={Colors.orange} style={styles.icon} />
+                    </TouchableOpacity>
                 </View>
-
+                <Spacer />
                 <Box text={Strings.ST25} />
                 <Spacer />
                 <Heading title={Strings.ST26} />
@@ -53,6 +66,26 @@ const styles = StyleSheet.create({
     },
     innerContainer: {
         // width: '97%'
+    },
+    userProfileContainer: {
+        flexDirection: 'row',
+        // backgroundColor: 'red',
+        height: '15%',
+        width: '95%',
+        alignSelf: 'center',
+        // alignItems:'center',
+        justifyContent: 'center'
+    },
+    iconContainer: {
+        // backgroundColor: 'green',
+        width: '20%',
+        // height: '100%',
+        marginTop: 15,
+        // alignSelf:'flex-end'
+    },
+    icon: {
+        alignSelf: 'flex-end',
+        // marginRight: 10
     }
 })
 

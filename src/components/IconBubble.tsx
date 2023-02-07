@@ -2,11 +2,15 @@ import React from "react";
 import { View, TouchableOpacity, StyleSheet } from "react-native";
 import Colors from "../../assets/Colors";
 
-const Bubble: React.FC = ({ icon }) => {
+interface Props {
+    icon: any;
+}
+
+const Bubble: React.FC<Props> = ({ icon }) => {
     return (
-        <TouchableOpacity style={styles.bubble}>
+        <View style={styles.bubble}>
             <View>{icon}</View>
-        </TouchableOpacity>
+        </View>
     )
 }
 
@@ -17,8 +21,8 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.lightorange,
         alignItems: 'center',
         justifyContent: 'center',
-        borderRadius: 999,
-        marginRight: 15
+        borderRadius: 50,
+        marginRight: 10
     }
 })
 

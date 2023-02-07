@@ -10,7 +10,12 @@ import Paragraph from "../components/Paragraph";
 import Languages from '../languages';
 import LanguageContext from '../languages/languageContext';
 
-const AboutScreen: React.FC = ({ navigation }) => {
+
+interface Props{
+    navigation: any;
+}
+
+const AboutScreen: React.FC<Props> = ({ navigation }) => {
 
     const contextState = useContext(LanguageContext);
     const language = contextState.language;

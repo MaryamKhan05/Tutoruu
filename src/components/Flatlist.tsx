@@ -1,18 +1,22 @@
-import React from "react";
-import { View, Text, FlatList, Image, StyleSheet, TouchableOpacity } from "react-native";
-import FontAwesome from 'react-native-vector-icons/FontAwesome'
-import AntDesign from "react-native-vector-icons/AntDesign"
-import Heading from "./Heading";
-import Bubble from "./IconBubble";
-import Colors from "../../assets/Colors";
-import Spacer from "./Spacer";
+import React, { useContext } from "react";
+import {
+    Text,
+    View,
+    FlatList,
+    TouchableOpacity,
+    StyleSheet,
+    ScrollView
+} from 'react-native'
+import AntDesign from 'react-native-vector-icons/AntDesign'
 
-interface MessageData {
-    id: number;
-    subject: string;
-    title: string;
-}
-const messageData: MessageData[] = [
+import Colors from "../../assets/Colors";
+import Heading from "./Heading";
+import Languages from '../languages';
+import LanguageContext from '../languages/languageContext';
+
+
+
+const messageData = [
     {
         id: 1,
         subject: 'CSCE 1520',
@@ -30,14 +34,16 @@ const messageData: MessageData[] = [
     },
 ]
 
+
 interface Props {
-    title: string;
     view: string;
 }
-const Section: React.FC<Props> = ({ title, view }) => {
-    const renderItem = ({ item }: { item: MessageData }) => {
+const CardList: React.FC<Props> = ({ view }) => {
+    const contextState = useContext(LanguageContext);
+    const language = contextState.language;
+    const Strings = Languages[language].texts;
+    const renderItem = ({ item }) => {
         return (
-
             <View style={styles.card}>
                 <View style={{ width: '70%', height: '100%', alignSelf: 'flex-start' }}>
                     <Text style={styles.subject}> {item.subject} </Text>
@@ -54,20 +60,20 @@ const Section: React.FC<Props> = ({ title, view }) => {
     }
     return (
         <View>
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-                <Heading title={title} />
-                <Bubble icon={<FontAwesome name="plus" size={25} color={Colors.orange} />} />
-            </View>
-            <Spacer />
-            <FlatList
-                horizontal
-                showsHorizontalScrollIndicator={false}
-                data={messageData}
-                renderItem={renderItem}
-                keyExtractor={item => item.id.toString()} />
+            <ScrollView showsVerticalScrollIndicator={false}>
+                <Heading title={Strings.ST40} />
+                <FlatList
+                    horizontal
+                    showsHorizontalScrollIndicator={false}
+                    data={messageData}
+                    renderItem={renderItem}
+                    keyExtractor={item => item.id.toString()} />
+            </ScrollView>
         </View>
+
     )
 }
+
 const styles = StyleSheet.create({
 
     container: {
@@ -121,4 +127,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default Section
+export default CardList

@@ -2,7 +2,12 @@ import React from "react";
 import { Text, StyleSheet } from 'react-native';
 import Colors from "../../assets/Colors";
 
-const Paragraph: React.FC = ({ paragraphStyle, paragraphText }) => {
+
+interface Props {
+    paragraphText: string;
+}
+
+const Paragraph: React.FC<Props> = ({ paragraphText }) => {
     return (
         <Text style={styles.paragraph} >{paragraphText} </Text>
     )
