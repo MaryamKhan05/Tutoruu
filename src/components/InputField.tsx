@@ -4,18 +4,18 @@ import Colors from "../../assets/Colors";
 
 
 interface Props {
-    height: number;
+   
     width: number;
     borderRadius: number;
 
 }
-const Field: React.FC<Props> = ({ height, borderRadius, width }) => {
+const Field: React.FC<Props> = ({ borderRadius, width }) => {
     return (
         <View>
             <TextInput
                 placeholder="Doe.."
                 placeholderTextColor={Colors.black}
-                style={[styles.input, { height, borderRadius, width }]} />
+                style={[styles.input, { borderRadius, width }]} />
         </View>
 
     )

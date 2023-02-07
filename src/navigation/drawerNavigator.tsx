@@ -5,7 +5,7 @@ import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Fontisto from "react-native-vector-icons/Fontisto";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Entypo from 'react-native-vector-icons/Entypo'
-
+import Ionicons from "react-native-vector-icons/Ionicons"
 import Colors from '../../assets/Colors';
 import FeedScreen from '../screens/FeedScreen';
 import AboutScreen from '../screens/AboutScreen';
@@ -22,7 +22,6 @@ interface Props {
 const size = 25;
 const color = Colors.orange;
 const Root: React.FC<Props> = ({ navigation }) => {
-  console.log(' appp tsx', navigation.toggleDrawer)
   return (
     <Drawer.Navigator
       initialRouteName='Feed'
@@ -61,8 +60,8 @@ const Root: React.FC<Props> = ({ navigation }) => {
               <TouchableOpacity
                 onPress={() => navigation.navigate('Search')}>
                 <Bubble icon=
-                  {<FontAwesome
-                    name="search"
+                  {<Ionicons
+                    name="search-outline"
                     size={size}
                     color={color} />} />
               </TouchableOpacity>
