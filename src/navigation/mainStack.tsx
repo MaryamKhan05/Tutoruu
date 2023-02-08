@@ -24,6 +24,7 @@ import Followers from '../../src/screens/FollowersScreen';
 import SearchScreen from '../../src/screens/SearchScreen';
 import Bubble from '../../src/components/IconBubble';
 import Root from './drawerNavigator';
+import SuccessScreen from '../screens/PaymentSuccessScreen';
 
 const Stack = createNativeStackNavigator();
 const size = 25;
@@ -31,7 +32,7 @@ const color = Colors.orange;
 const MainStack: React.FC = () => {
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName='Root'>
+            <Stack.Navigator initialRouteName='Success'>
 
                 <Stack.Screen name='Root' component={Root} options={{ headerShown: (false) }} />
                 <Stack.Screen name='Payment' component={PaymentScreen} options={{ headerShown: (false) }} />
@@ -39,6 +40,8 @@ const MainStack: React.FC = () => {
                 <Stack.Screen name='Edit' component={Edit} options={{ headerShown: (false) }} />
                 <Stack.Screen name='Followers' component={Followers} options={{ headerShown: (false) }} />
                 <Stack.Screen name='Search' component={SearchScreen} options={{ headerShown: (false) }} />
+                <Stack.Screen name='Success' component={SuccessScreen} options={{ headerShown: (false) }} />
+
             </Stack.Navigator>
         </NavigationContainer>
     )

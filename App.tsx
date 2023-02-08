@@ -3,15 +3,18 @@
 import React from 'react';
 import LanguageContext from './src/languages/languageContext';
 import MainStack from './src/navigation/mainStack';
+import PaymentScreen from './src/screens/PaymentScreen';
 
 const App: React.FC = () => {
   return (
     <MainStack />
+    // <PaymentScreen/>
   );
 }
 
+
 const defaultLanguage = 'en';
-const MyApp = () => {
+const MyApp= () => {
   return (
     <LanguageContext.Provider value={{ language: defaultLanguage }}>
       <App />
