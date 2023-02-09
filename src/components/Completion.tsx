@@ -8,14 +8,13 @@ interface Props {
     image: any;
 }
 
-const Completion: React.FC<Props> = ({ image, text }) => {
+const Completion: React.FC<Props> = ({ image, text, color }) => {
 
     return (
         <View>
             <Image source={image} style={styles.image} />
             <Spacer />
-            <Text style={styles.heading}> {text} </Text>
-            <Spacer />
+            <Text style={[styles.heading,{ color}]}> {text} </Text>
         </View>
     )
 }
@@ -37,7 +36,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center'
     },
     heading: {
-        color: Colors.orange,
+       
         fontStyle: 'normal',
         fontSize: 20,
         fontWeight: '700',

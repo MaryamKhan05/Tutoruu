@@ -45,5 +45,11 @@
   "ST44": "Card",
   "ST45": "online",
   "ST46": "Monday",
-  "ST47": "Macro economics 135"
+  "ST47": "Macro economics 135",
+  "ST48": "CONFIRMED",
+  "ST49": "View session confirmation",
+  "ST50": "Payment Failed",
+  "ST51": "Try again to lock in your session",
+  "ST52": "Retry",
+  "ST53": "Payment Pending"
 }

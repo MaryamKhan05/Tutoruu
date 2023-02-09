@@ -5,15 +5,21 @@ import Colors from "../../assets/Colors";
 
 import Languages from '../languages';
 import LanguageContext from '../languages/languageContext';
-const PaymentCard: React.FC = () => {
+import PaymentTag from "./PaymentTag";
+
+interface Props {
+    text: string;
+}
+const PaymentCard: React.FC<Props> = ({ text }) => {
     const contextState = useContext(LanguageContext);
     const language = contextState.language;
     const Strings = Languages[language].texts;
     return (
         <View style={[styles.card, { width: 314, height: 110 }]}>
+            <PaymentTag text={text} />
             <Text style={[styles.text, { color: Colors.orange }]}>{Strings.ST45} </Text>
             <Text style={styles.day}>{Strings.ST46}</Text>
-            <Text style={styles.text}>online</Text>
+            <Text style={styles.text}>{Strings.ST47}</Text>
         </View>
     )
 }
@@ -27,7 +33,7 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.white,
         alignSelf: 'center',
         borderRadius: 20,
-        padding: 10,
+        padding: 15,
         // alignItems: 'center'
     },
     text: {
