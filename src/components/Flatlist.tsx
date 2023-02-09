@@ -111,12 +111,10 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-start',
     },
     view: {
-
         width: '15%',
         backgroundColor: 'green',
         height: '100%',
         alignSelf: 'flex-end'
-
     },
     view2: {
         fontSize: 14,

@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, Image, StyleSheet } from "react-native";
+import { Text, View, StyleSheet } from "react-native";
 import Colors from "../../assets/Colors";
 
 interface Props{
@@ -7,8 +7,6 @@ interface Props{
     height: number;
     text: string;
 }
-
-
 const Auc: React.FC<Props> = ({ width, height, text }) => {
     return (
         <View style={[styles.container, { width, height }]}>
@@ -16,11 +14,8 @@ const Auc: React.FC<Props> = ({ width, height, text }) => {
         </View>
     )
 }
-
 const styles = StyleSheet.create({
     container: {
-        // width: 50,
-        // height: 30,
         backgroundColor: Colors.lightorange,
         alignItems: 'center',
         justifyContent: 'center',

@@ -1,10 +1,8 @@
-import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { Text, View, Image, StyleSheet, TouchableOpacity } from "react-native";
-import Feather from "react-native-vector-icons/Feather"
+import { useNavigation } from "@react-navigation/native";
+import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
 
 import Colors from "../../assets/Colors";
-import Auc from "./Auc";
 
 interface Props {
     followers: string;
@@ -23,7 +21,6 @@ const User: React.FC<Props> = ({ followers, route }) => {
     )
 }
 const styles = StyleSheet.create({
-
     userNameContainer: {
         // backgroundColor: 'orange',
         width: '50%',
@@ -38,5 +35,4 @@ const styles = StyleSheet.create({
         textTransform: 'capitalize'
     }
 })
-
 export default User

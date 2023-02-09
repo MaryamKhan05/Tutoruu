@@ -43,7 +43,7 @@ const Root: React.FC<Props> = ({ navigation }) => {
           headerTitle: () =>
             <Image
               source={require('../../assets/logo.jpg')}
-              style={{ height: 38, width: 99 }} />,
+              style={{ height: 38, width: 99, alignSelf:'center' }} />,
           headerRight: () =>
             [<View style={styles.icon} >
               <TouchableOpacity
@@ -126,7 +126,6 @@ const Root: React.FC<Props> = ({ navigation }) => {
 const styles = StyleSheet.create({
   icon: {
     flexDirection: 'row',
-    // marginRight: 10
   },
 })
 

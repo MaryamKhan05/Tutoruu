@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, FlatList, Image, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, FlatList, StyleSheet, TouchableOpacity } from "react-native";
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import AntDesign from "react-native-vector-icons/AntDesign"
 import Heading from "./Heading";

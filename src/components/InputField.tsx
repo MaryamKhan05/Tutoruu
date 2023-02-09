@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, TextInput, StyleSheet } from 'react-native'
+import { View, TextInput, StyleSheet } from 'react-native'
 import Colors from "../../assets/Colors";
 
 
@@ -17,10 +17,8 @@ const Field: React.FC<Props> = ({ borderRadius, width }) => {
                 placeholderTextColor={Colors.black}
                 style={[styles.input, { borderRadius, width }]} />
         </View>
-
     )
 }
-
 const styles = StyleSheet.create({
     input: {
         borderWidth: 1,
@@ -28,8 +26,6 @@ const styles = StyleSheet.create({
         borderColor: Colors.gray,
         padding: 10,
         margin: 5
-        // width: '90%',
-        // alignSelf: 'center'
     },
 })
 

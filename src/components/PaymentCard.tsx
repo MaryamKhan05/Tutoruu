@@ -34,13 +34,11 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         borderRadius: 20,
         padding: 15,
-        // alignItems: 'center'
     },
     text: {
         fontSize: 14,
         fontWeight: '400',
         lineHeight: 21,
-
     },
     day: {
         fontSize: 16,
@@ -48,7 +46,6 @@ const styles = StyleSheet.create({
         lineHeight: 24,
         color: Colors.black
     },
-
 })
 
 export default PaymentCard

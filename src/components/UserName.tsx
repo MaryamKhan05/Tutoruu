@@ -1,7 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import Colors from "../../assets/Colors";
-import Spacer from "./Spacer";
 
 const Username: React.FC = () => {
     return (
@@ -27,7 +26,6 @@ const styles = StyleSheet.create({
         fontSize: 30,
         fontWeight: '700',
         lineHeight: 45,
-
     },
     student: {
         fontSize: 14,
@@ -35,8 +33,6 @@ const styles = StyleSheet.create({
         lineHeight: 21,
         color: Colors.black,
         opacity: 0.5,
-
-
     },
     studentContainer: {
         justifyContent: 'center',

@@ -6,6 +6,7 @@ import Spacer from "./Spacer";
 interface Props {
     text: string;
     image: any;
+    color:any;
 }
 
 const Completion: React.FC<Props> = ({ image, text, color }) => {
@@ -36,7 +37,6 @@ const styles = StyleSheet.create({
         alignSelf: 'center'
     },
     heading: {
-       
         fontStyle: 'normal',
         fontSize: 20,
         fontWeight: '700',

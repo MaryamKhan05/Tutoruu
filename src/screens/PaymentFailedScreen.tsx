@@ -1,12 +1,11 @@
 import React, { useContext } from "react";
-import { Text, View, SafeAreaView, StyleSheet, TouchableOpacity } from "react-native";
+import { Text, View, SafeAreaView, StyleSheet } from "react-native";
 
 import Colors from "../../assets/Colors";
 import Btn from "../components/Button";
 import Completion from "../components/Completion";
 import Divider from "../components/Divider";
 import Header from "../components/Header";
-import Paragraph from "../components/Paragraph";
 import PaymentCard from "../components/PaymentCard";
 import Spacer from "../components/Spacer";
 import Languages from '../languages';
@@ -70,7 +69,5 @@ const styles = StyleSheet.create({
         lineHeight: 21,
         color: Colors.black
     }
-
 })
-
 export default FailedScreen

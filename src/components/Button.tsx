@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { Text, TouchableOpacity, StyleSheet } from "react-native";
 import Colors from "../../assets/Colors";
 
 interface Props {
@@ -22,7 +22,6 @@ const Btn: React.FC<Props> = ({ text, route, width, height }) => {
 const styles = StyleSheet.create({
     btnStyles: {
         backgroundColor: Colors.orange,
-        // width: 93,
         height: 33,
         borderRadius: 999,
         alignItems: 'center',

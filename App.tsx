@@ -8,7 +8,6 @@ import PaymentScreen from './src/screens/PaymentScreen';
 const App: React.FC = () => {
   return (
     <MainStack />
-    // <PaymentScreen/>
   );
 }
 

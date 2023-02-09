@@ -4,14 +4,12 @@ import Colors from "../../assets/Colors";
 import Feather from 'react-native-vector-icons/Feather'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 
-
 interface Props {
     text: string;
 }
 
 const Box: React.FC<Props> = ({ text }) => {
     return (
-        // <View style={{ height: '100%', backgroundColor: 'white', justifyContent: 'center' }}>
         <View style={styles.box}>
             <View style={{ width: '20%', height: '100%', alignSelf: 'flex-start', justifyContent: 'center', alignItems: 'center' }}>
                 <Feather name="gift" size={20} color={Colors.fadedgray} />
@@ -23,7 +21,6 @@ const Box: React.FC<Props> = ({ text }) => {
                 <AntDesign name="arrowright" size={20} color={Colors.orange} />
             </TouchableOpacity>
         </View>
-        // </View>
     )
 }
 

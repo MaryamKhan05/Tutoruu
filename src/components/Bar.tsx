@@ -5,7 +5,6 @@ import {
     StyleSheet
 } from "react-native";
 import Colors from "../../assets/Colors";
-import DashboardHeader from "./DashboardHeader";
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 
 interface Props{
@@ -35,9 +34,6 @@ const styles = StyleSheet.create({
         padding: 10,
         width: '95%',
         alignSelf: 'center',
-
     },
-
 })
-
 export default Bar

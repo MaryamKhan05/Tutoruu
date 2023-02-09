@@ -2,17 +2,11 @@ import React from "react";
 import { View, StyleSheet } from 'react-native';
 import Colors from "../../assets/Colors";
 
-interface Props {
-    cardWidth: number;
-    cardHeight: number;
-}
 
-const Card: React.FC<Props> = ({ cardWidth, cardHeight }) => {
+
+const Card: React.FC = () => {
     return (
-
-        <View style={[styles.card, { width: '50%', height: '50%' }]}>
-
-        </View>
+        <View style={[styles.card, { width: '50%', height: '50%' }]}/>
     )
 }
 

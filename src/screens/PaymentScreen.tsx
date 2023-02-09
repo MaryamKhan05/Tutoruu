@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
-import { View, Text, TouchableOpacity, SafeAreaView, StyleSheet, Image } from 'react-native';
-import Ionicons from "react-native-vector-icons/Ionicons";
+import { View, SafeAreaView, StyleSheet } from 'react-native';
 
 
 
@@ -8,7 +7,6 @@ import Colors from '../../assets/Colors';
 import Completion from "../components/Completion";
 import Header from "../components/Header";
 import Paragraph from "../components/Paragraph";
-import Spacer from "../components/Spacer";
 import Languages from '../languages';
 import LanguageContext from '../languages/languageContext';
 

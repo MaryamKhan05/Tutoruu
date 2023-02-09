@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 import Colors from "../../assets/Colors";
 
@@ -20,20 +20,17 @@ const PaymentTag: React.FC<Props> = ({ text }) => {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: Colors.lightorange,
-        // width: 71,
         height: 19,
         borderRadius: 5,
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'row'
-
     },
     text: {
         fontWeight: '500',
         fontSize: 10,
         lineHeight: 15,
         color: Colors.orange
-
     },
     time: {
         fontWeight: '500',

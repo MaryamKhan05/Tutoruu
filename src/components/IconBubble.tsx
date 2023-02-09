@@ -1,11 +1,10 @@
 import React from "react";
-import { View, TouchableOpacity, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 import Colors from "../../assets/Colors";
 
 interface Props {
     icon: any;
 }
-
 const Bubble: React.FC<Props> = ({ icon }) => {
     return (
         <View style={styles.bubble}>

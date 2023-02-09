@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
-import { View, Text, TouchableOpacity, SafeAreaView, StyleSheet, Image } from 'react-native';
-import Ionicons from "react-native-vector-icons/Ionicons";
+import { View, SafeAreaView, StyleSheet, Image } from 'react-native';
 
 
 
@@ -11,7 +10,7 @@ import Languages from '../languages';
 import LanguageContext from '../languages/languageContext';
 
 
-interface Props{
+interface Props {
     navigation: any;
 }
 
@@ -22,10 +21,10 @@ const AboutScreen: React.FC<Props> = ({ navigation }) => {
     const Strings = Languages[language].texts;
     return (
         <SafeAreaView style={styles.container}>
-            <Header headerTitle={Strings.ST11} headerStyle={styles.header} />
+            <Header headerTitle={Strings.ST11} />
             <View style={{ marginTop: '70%' }}>
                 <Image source={require('../../assets/logo.jpg')} style={styles.image} />
-                <Paragraph paragraphStyle={styles.paragraph} paragraphText={Strings.ST10} />
+                <Paragraph paragraphText={Strings.ST10} />
             </View>
         </SafeAreaView>
     )
@@ -35,8 +34,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: Colors.white,
-        // alignItems: 'center',
-        // justifyContent: "center"
     },
     paragraph: {
         color: Colors.black,
@@ -52,8 +49,6 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         marginBottom: 20
     },
-   
-  
 });
 
 export default AboutScreen

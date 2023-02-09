@@ -16,17 +16,12 @@ interface Props{
     navigation:any;
 }
 const DashboardHeader: React.FC<Props> = () => {
-    // const {navigation} = props;
-//     const isDrawerOpen = useIsDrawerOpen();
-//   const drawerFocus = useDrawerFocus();
     const navigation = useNavigation();
-    // console.log(navigation)
     return (
         <View style={styles.header}>
             <View>
                 <TouchableOpacity onPress={()=> navigation.toggleDrawer()}>
                     <Entypo style={{ width: 20 }} name='menu' size={27} color='#FE8303' />
-                    {/* <Text>{drawerFocus ? 'Close Drawer' : 'Open Drawer'}</Text> */}
                 </TouchableOpacity>
             </View>
             <Text style={{ textAlign: 'center' }}>Muhammad</Text>
