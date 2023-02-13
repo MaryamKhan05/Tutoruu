@@ -25,7 +25,7 @@ const AboutScreen: React.FC<Props> = ({ navigation }) => {
     const language = contextState.language;
     const Strings = Languages[language].texts;
     return (
-        <SafeAreaView style={styles.container}>
+        <SafeAreaView  style={styles.container}>
             <Header headerTitle={Strings.ST11} />
             <View style={{ marginTop: '70%' }}>
                 <Image source={require('../../../assets/logo.jpg')} style={styles.image} />

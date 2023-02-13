@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { StyleSheet, Text, View, FlatList, Image, TouchableOpacity } from 'react-native'
-import { ScrollView } from 'react-native-gesture-handler'
-import { useTailwind } from 'tailwind-rn/dist'
+import { ScrollView } from 'react-native-virtualized-view'
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import Feather from 'react-native-vector-icons/Feather'
@@ -57,8 +56,6 @@ const FeedScreen: React.FC<Props> = ({ navigation }) => {
   const contextState = useContext(LanguageContext);
   const language = contextState.language;
   const Strings = Languages[language].texts;
-  const tw = useTailwind();
-
   const [Message, setMessage] = useState();
   const [Like, setLike] = useState();
   const [Dislike, setDislike] = useState()

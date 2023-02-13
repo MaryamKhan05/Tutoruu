@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import PaymentScreen from '../screens/StudentFlow/PaymentScreen';
@@ -19,8 +19,8 @@ import RequestedScreen from '../screens/StudentFlow/TutorRequestedScreen';
 const Stack = createNativeStackNavigator();
 const MainStack: React.FC = () => {
     return (
-        <NavigationContainer>
-            <Stack.Navigator initialRouteName='PickLocation'>
+       
+            <Stack.Navigator >
                 <Stack.Screen name='Root' component={Root} options={{ headerShown: (false) }} />
                 <Stack.Screen name='Payment' component={PaymentScreen} options={{ headerShown: (false) }} />
                 <Stack.Screen name='Notification' component={Notification} options={{ headerShown: (false) }} />
@@ -35,7 +35,7 @@ const MainStack: React.FC = () => {
                 <Stack.Screen name='PickLocation' component={PickLocation} options={{ headerShown: (false) }} />
                 <Stack.Screen name='RequestedScreen' component={RequestedScreen} options={{ headerShown: (false) }} />
             </Stack.Navigator>
-        </NavigationContainer>
+       
     )
 }
 export default MainStack

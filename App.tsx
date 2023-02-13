@@ -1,12 +1,16 @@
 
-/// <reference types="nativewind/types"/>;
+/// <reference types="nativewind/types"/>
 import React from 'react';
 import LanguageContext from './src/languages/languageContext';
-import MainStack from './src/navigation/mainStack';
+import StudentStackMain from './src/navigation/StudentMainStack';
+import { NavigationContainer } from '@react-navigation/native';
 
 const App: React.FC = () => {
   return (
-    <MainStack />
+    <NavigationContainer>
+
+      <StudentStackMain/>
+    </NavigationContainer>
   );
 }
 

@@ -7,7 +7,7 @@ import AntDesign from "react-native-vector-icons/AntDesign";
 import Colors from '../../../assets/Colors';
 import Languages from '../../languages';
 import LanguageContext from '../../languages/languageContext';
-import { useTailwind } from "tailwind-rn/dist";
+
 import Header from "../../components/Header";
 import SettingsComponent from "../../components/Settings";
 
@@ -19,10 +19,10 @@ const SettingsScreen: React.FC<Props> = ({ navigation }) => {
     const contextState = useContext(LanguageContext);
     const language = contextState.language;
     const Strings = Languages[language].texts;
-    const tw = useTailwind();
+  
     
     return (
-        <SafeAreaView style={tw('h-full w-full')}>
+        <SafeAreaView >
             <Header headerTitle={Strings.ST12} />
             <SettingsComponent text={Strings.ST13} icon={<MaterialCommunityIcons name="lock" style={styles.icon} />} />
             <SettingsComponent text={Strings.ST14} icon={<AntDesign name="logout" style={styles.icon} />} />

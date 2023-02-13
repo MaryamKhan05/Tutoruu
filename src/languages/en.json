@@ -66,5 +66,19 @@
   "ST65": "Know any other FILM 330 students?",
   "ST66": "Tags",
   "ST67": "Post anonymously",
-  "ST68": "Post"
+  "ST68": "Post",
+  "ST69":"Welcome Back",
+  "ST70":"Don't Have An Account ? ",
+  "ST71":"Reset Password",
+   "ST72":"Sign Up For Tutoruu",
+   "ST73":"Already Have An Account ? ",
+   "ST74":"Forgot Your Password?",
+   "ST75":"Leave your email and we’ll send you a link to update your password and log into your account ",
+   "ST76":"Update Your Password",
+   "ST77":"Update your password and log into your account",
+   "ST78":"Check Your Inbox",
+   "ST79":"Click on the magic link you just received to verify it’s really you.",
+   "ST80":"Upcoming Sessions",
+   "ST81":"View All Sessions",
+   "ST82":"Complete Setting Up Your Account"
 }
