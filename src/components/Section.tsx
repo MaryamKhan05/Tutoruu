@@ -56,7 +56,9 @@ const Section: React.FC<Props> = ({ title, view }) => {
         <View>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
                 <Heading title={title} />
-                <Bubble icon={<FontAwesome name="plus" size={25} color={Colors.orange} />} />
+                <TouchableOpacity>
+                    <Bubble icon={<FontAwesome name="plus" size={25} color={Colors.orange} />} />
+                </TouchableOpacity>
             </View>
             <Spacer />
             <FlatList

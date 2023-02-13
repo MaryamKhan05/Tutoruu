@@ -51,5 +51,20 @@
   "ST50": "Payment Failed",
   "ST51": "Try again to lock in your session",
   "ST52": "Retry",
-  "ST53": "Payment Pending"
+  "ST53": "Payment Pending",
+  "ST54": "Pick A Class",
+  "ST55": "Take Class",
+  "ST56": "Next",
+  "ST57": "Pick A Time",
+  "ST58": "slots",
+  "ST59": "Pick A Topic",
+  "ST60": "Confirm",
+  "ST61": "Tutor requested!",
+  "ST62": "We’re on the lookout for Film 330 tutors and we’ll ping you as soon as we find any.",
+  "ST63": "More enrolled students means more attractive classes to teach for tutors. Speed up the process by inviting your classmates",
+  "ST64": "Invite",
+  "ST65": "Know any other FILM 330 students?",
+  "ST66": "Tags",
+  "ST67": "Post anonymously",
+  "ST68": "Post"
 }

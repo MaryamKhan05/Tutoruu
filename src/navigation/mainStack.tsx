@@ -2,21 +2,25 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import PaymentScreen from '../../src/screens/PaymentScreen';
-import Notification from '../../src/screens/NotificationScreen';
-import Edit from '../../src/screens/EditProfileScreen';
-import Followers from '../../src/screens/FollowersScreen';
-import SearchScreen from '../../src/screens/SearchScreen';
+import PaymentScreen from '../screens/StudentFlow/PaymentScreen';
+import Notification from '../screens/StudentFlow/NotificationScreen';
+import Edit from '../screens/StudentFlow/EditProfileScreen';
+import Followers from '../screens/StudentFlow/FollowersScreen';
+import SearchScreen from '../screens/StudentFlow/SearchScreen';
 import Root from './drawerNavigator';
-import SuccessScreen from '../screens/PaymentSuccessScreen';
-import FailedScreen from '../screens/PaymentFailedScreen';
+import SuccessScreen from '../screens/StudentFlow/PaymentSuccessScreen';
+import FailedScreen from '../screens/StudentFlow/PaymentFailedScreen';
+import PickClass from '../screens/StudentFlow/PickClassScreen';
+import PickTime from '../screens/StudentFlow/PickTimeScreen';
+import PickTopic from '../screens/StudentFlow/PickTopicScreen';
+import PickLocation from '../screens/StudentFlow/PickLocationScreen';
+import RequestedScreen from '../screens/StudentFlow/TutorRequestedScreen';
 
 const Stack = createNativeStackNavigator();
 const MainStack: React.FC = () => {
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName='Root'>
-
+            <Stack.Navigator initialRouteName='PickLocation'>
                 <Stack.Screen name='Root' component={Root} options={{ headerShown: (false) }} />
                 <Stack.Screen name='Payment' component={PaymentScreen} options={{ headerShown: (false) }} />
                 <Stack.Screen name='Notification' component={Notification} options={{ headerShown: (false) }} />
@@ -25,7 +29,11 @@ const MainStack: React.FC = () => {
                 <Stack.Screen name='Search' component={SearchScreen} options={{ headerShown: (false) }} />
                 <Stack.Screen name='Success' component={SuccessScreen} options={{ headerShown: (false) }} />
                 <Stack.Screen name='Failed' component={FailedScreen} options={{ headerShown: (false) }} />
-
+                <Stack.Screen name='PickClass' component={PickClass} options={{ headerShown: (false) }} />
+                <Stack.Screen name='PickTime' component={PickTime} options={{ headerShown: (false) }} />
+                <Stack.Screen name='PickTopic' component={PickTopic} options={{ headerShown: (false) }} />
+                <Stack.Screen name='PickLocation' component={PickLocation} options={{ headerShown: (false) }} />
+                <Stack.Screen name='RequestedScreen' component={RequestedScreen} options={{ headerShown: (false) }} />
             </Stack.Navigator>
         </NavigationContainer>
     )

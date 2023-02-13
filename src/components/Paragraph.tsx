@@ -15,9 +15,9 @@ const styles = StyleSheet.create({
         color: Colors.black,
         fontWeight: '400',
         fontSize: 14,
-        textAlign: 'center',
+        // textAlign: 'center',
         lineHeight: 21,
-        fontStyle: 'normal'
+        fontStyle: 'normal',
     },
 })
 

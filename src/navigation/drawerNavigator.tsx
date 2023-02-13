@@ -7,11 +7,11 @@ import AntDesign from "react-native-vector-icons/AntDesign";
 import Entypo from 'react-native-vector-icons/Entypo'
 import Ionicons from "react-native-vector-icons/Ionicons"
 import Colors from '../../assets/Colors';
-import FeedScreen from '../screens/FeedScreen';
-import AboutScreen from '../screens/AboutScreen';
-import SupportScreen from '../screens/SupportScreen';
-import ProfileScreen from '../screens/ProfileScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import FeedScreen from '../screens/StudentFlow/FeedScreen';
+import AboutScreen from '../screens/StudentFlow/AboutScreen';
+import SupportScreen from '../screens/StudentFlow/SupportScreen';
+import ProfileScreen from '../screens/StudentFlow/ProfileScreen';
+import SettingsScreen from '../screens/StudentFlow/SettingsScreen';
 import Bubble from '../components/IconBubble';
 
 const Drawer = createDrawerNavigator();

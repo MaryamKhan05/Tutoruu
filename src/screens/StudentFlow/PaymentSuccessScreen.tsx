@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
 import { Text, View, SafeAreaView, StyleSheet, TouchableOpacity } from "react-native";
 
-import Colors from "../../assets/Colors";
-import Completion from "../components/Completion";
-import Divider from "../components/Divider";
-import Header from "../components/Header";
-import Paragraph from "../components/Paragraph";
-import PaymentCard from "../components/PaymentCard";
-import Spacer from "../components/Spacer";
-import Languages from '../languages';
-import LanguageContext from '../languages/languageContext';
+import Colors from "../../../assets/Colors";
+import Completion from "../../components/Completion";
+import Divider from "../../components/Divider";
+import Header from "../../components/Header";
+import Paragraph from "../../components/Paragraph";
+import PaymentCard from "../../components/PaymentCard";
+import Spacer from "../../components/Spacer";
+import Languages from '../../languages';
+import LanguageContext from '../../languages/languageContext';
 
 const SuccessScreen: React.FC = () => {
     const contextState = useContext(LanguageContext);
@@ -20,7 +20,7 @@ const SuccessScreen: React.FC = () => {
             <Spacer />
             <Header headerTitle="Payment" />
             <View style={styles.innerContainer}>
-                <Completion image={require('../../assets/payment.jpg')} text={Strings.ST41} color={Colors.orange} />
+                <Completion image={require('../../../assets/payment.jpg')} text={Strings.ST41} color={Colors.orange} />
                 <View style={{ flexDirection: 'row', }}>
                     <Text style={[styles.text, { marginLeft: '5%' }]}> {Strings.ST42} </Text>
                     <Text style={[styles.text, { marginRight: '5%', fontWeight: 'bold' }]}>324 ECP</Text>

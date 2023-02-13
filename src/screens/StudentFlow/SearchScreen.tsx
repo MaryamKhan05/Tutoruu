@@ -7,14 +7,14 @@ import {
 } from "react-native";
 
 
-import Colors from "../../assets/Colors";
-import Bar from "../components/Bar";
-import Card from "../components/Card";
-import Header from "../components/Header";
-import Spacer from "../components/Spacer";
-import CardList from "../components/Flatlist";
-import Languages from '../languages';
-import LanguageContext from '../languages/languageContext';
+import Colors from "../../../assets/Colors";
+import Bar from "../../components/Bar";
+import Card from "../../components/Card";
+import Header from "../../components/Header";
+import Spacer from "../../components/Spacer";
+import CardList from "../../components/Flatlist";
+import Languages from '../../languages';
+import LanguageContext from '../../languages/languageContext';
 
 
 const SearchScreen: React.FC = () => {

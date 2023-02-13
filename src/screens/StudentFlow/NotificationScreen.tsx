@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { Text, View, Image, SafeAreaView, ScrollView, SectionList, StyleSheet } from "react-native";
-import Header from "../components/Header";
-import Colors from '../../assets/Colors';
-import Languages from '../languages';
-import LanguageContext from '../languages/languageContext';
+import Header from "../../components/Header";
+import Colors from '../../../assets/Colors';
+import Languages from '../../languages';
+import LanguageContext from '../../languages/languageContext';
 const sections = [
     {
         title: 'Today',

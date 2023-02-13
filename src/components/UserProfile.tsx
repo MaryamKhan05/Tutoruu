@@ -15,7 +15,7 @@ const User: React.FC<Props> = ({ followers, route }) => {
         <View style={styles.userNameContainer}>
             <Text style={styles.userName}>Rangar</Text>
             <TouchableOpacity onPress={() => navigation.navigate(route)}>
-                <Text>321 {followers}</Text>
+                <Text style={styles.followers}>321 {followers}</Text>
             </TouchableOpacity>
         </View>
     )
@@ -33,6 +33,9 @@ const styles = StyleSheet.create({
         lineHeight: 30,
         color: Colors.black,
         textTransform: 'capitalize'
+    },
+    followers: {
+        color: Colors.orange
     }
 })
 export default User

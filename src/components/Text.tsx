@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
         fontWeight: '400',
         lineHeight: 21,
         color: Colors.black,
-        marginLeft: 10
+        marginLeft: 10,
     }
 })
 export default TextComponent

@@ -3,12 +3,12 @@ import { View, SafeAreaView, StyleSheet } from 'react-native';
 
 
 
-import Colors from '../../assets/Colors';
-import Completion from "../components/Completion";
-import Header from "../components/Header";
-import Paragraph from "../components/Paragraph";
-import Languages from '../languages';
-import LanguageContext from '../languages/languageContext';
+import Colors from '../../../assets/Colors';
+import Completion from "../../components/Completion";
+import Header from "../../components/Header";
+import Paragraph from "../../components/Paragraph";
+import Languages from '../../languages';
+import LanguageContext from '../../languages/languageContext';
 
 
 const PaymentScreen: React.FC = () => {
@@ -19,7 +19,7 @@ const PaymentScreen: React.FC = () => {
         <SafeAreaView style={styles.container}>
             <Header headerTitle="Payment" />
             <View style={styles.innerContainer}>
-                <Completion image={require('../../assets/payment.jpg')}  text={Strings.ST23} />
+                <Completion image={require('../../../assets/payment.jpg')}  text={Strings.ST23} />
                 <Paragraph paragraphText={Strings.ST22} />  
             </View>
         </SafeAreaView>

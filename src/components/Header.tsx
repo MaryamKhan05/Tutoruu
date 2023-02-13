@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import Ionicons from "react-native-vector-icons/Ionicons";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
 
 
 interface Props {
@@ -12,7 +12,7 @@ const Header: React.FC<Props> = ({ headerTitle }) => {
     return (
         <View style={{ flexDirection: 'row' }}>
             <TouchableOpacity onPress={() => navigation.goBack()} >
-                <Ionicons name="chevron-back" style={styles.back} />
+                <FontAwesome name="chevron-left" style={styles.back} />
             </TouchableOpacity>
             <Text style={styles.header} > {headerTitle} </Text>
         </View>

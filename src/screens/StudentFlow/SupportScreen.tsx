@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 import { View, Text, SafeAreaView, TouchableOpacity, TextInput, StyleSheet } from 'react-native';
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-import Colors from '../../assets/Colors';
-import Languages from '../languages';
-import LanguageContext from '../languages/languageContext';
-import Btn from "../components/Button";
+import Colors from '../../../assets/Colors';
+import Languages from '../../languages';
+import LanguageContext from '../../languages/languageContext';
+import Btn from "../../components/Button";
 
 
 interface Props{

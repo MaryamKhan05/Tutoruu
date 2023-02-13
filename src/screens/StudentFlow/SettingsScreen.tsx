@@ -4,12 +4,12 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 import AntDesign from "react-native-vector-icons/AntDesign";
 
 
-import Colors from '../../assets/Colors';
-import Languages from '../languages';
-import LanguageContext from '../languages/languageContext';
+import Colors from '../../../assets/Colors';
+import Languages from '../../languages';
+import LanguageContext from '../../languages/languageContext';
 import { useTailwind } from "tailwind-rn/dist";
-import Header from "../components/Header";
-import SettingsComponent from "../components/Settings";
+import Header from "../../components/Header";
+import SettingsComponent from "../../components/Settings";
 
 interface Props{
     navigation: any;

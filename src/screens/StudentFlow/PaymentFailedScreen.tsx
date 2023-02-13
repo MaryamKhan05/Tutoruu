@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
 import { Text, View, SafeAreaView, StyleSheet } from "react-native";
 
-import Colors from "../../assets/Colors";
-import Btn from "../components/Button";
-import Completion from "../components/Completion";
-import Divider from "../components/Divider";
-import Header from "../components/Header";
-import PaymentCard from "../components/PaymentCard";
-import Spacer from "../components/Spacer";
-import Languages from '../languages';
-import LanguageContext from '../languages/languageContext';
+import Colors from "../../../assets/Colors";
+import Btn from "../../components/Button";
+import Completion from "../../components/Completion";
+import Divider from "../../components/Divider";
+import Header from "../../components/Header";
+import PaymentCard from "../../components/PaymentCard";
+import Spacer from "../../components/Spacer";
+import Languages from '../../languages';
+import LanguageContext from '../../languages/languageContext';
 
 
 const FailedScreen: React.FC = () => {
@@ -21,7 +21,7 @@ const FailedScreen: React.FC = () => {
             <Spacer />
             <Header headerTitle="Payment" />
             <View style={styles.innerContainer}>
-                <Completion image={require('../../assets/failed.jpg')} text={Strings.ST50} color={Colors.black} />
+                <Completion image={require('../../../assets/failed.jpg')} text={Strings.ST50} color={Colors.black} />
                 <Text style={styles.try}> {Strings.ST51} </Text>
                 <Btn text={Strings.ST52} route={() => { }} width={270} height={41} />
                 <Spacer />

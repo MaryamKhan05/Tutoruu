@@ -9,7 +9,10 @@ interface Props {
 const UserImage: React.FC<Props> = ({ width, height }) => {
     return (
         <View style={styles.imageContainer}>
-            <Image source={{ uri: 'https://www.bootdey.com/img/Content/avatar/avatar3.png' }} style={[styles.image, { width, height }]} />
+            <Image
+                source={{ uri: 'https://www.bootdey.com/img/Content/avatar/avatar3.png' }}
+                style={[styles.image, { width, height }]}
+            />
         </View>
     )
 }

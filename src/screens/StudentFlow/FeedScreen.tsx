@@ -5,13 +5,14 @@ import { useTailwind } from 'tailwind-rn/dist'
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import Feather from 'react-native-vector-icons/Feather'
-import Languages from '../languages'
-import LanguageContext from '../languages/languageContext'
-import ToggleButtons from '../components/ToggleButtons'
-import Username from '../components/UserName'
-import Spacer from '../components/Spacer'
-import Colors from '../../assets/Colors'
-import CreatePost from '../components/CreatePost'
+
+import Languages from '../../languages'
+import LanguageContext from '../../languages/languageContext'
+import ToggleButtons from '../../components/ToggleButtons'
+import Username from '../../components/UserName'
+import Spacer from '../../components/Spacer'
+import Colors from '../../../assets/Colors'
+import CreatePost from '../../components/CreatePost'
 
 const size = 20;
 const color = Colors.fadedgray;
@@ -72,7 +73,7 @@ const FeedScreen: React.FC<Props> = ({ navigation }) => {
         showsVerticalScrollIndicator={false}
       >
         <Spacer />
-        <CreatePost />
+      <CreatePost />
         <FlatList
           showsVerticalScrollIndicator={false}
           data={messageData}
@@ -162,6 +163,8 @@ const FeedScreen: React.FC<Props> = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    // backgroundColor:'red',
+    alignItems:'center'
   },
   cardHeader: {
     flexDirection: 'row',
@@ -172,7 +175,9 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     margin: 10,
     backgroundColor: 'white',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    // alignSelf:'center',
+    // width:'90%'
   },
   avatar: {
     width: 40,

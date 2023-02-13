@@ -1,16 +1,16 @@
 import React, { useContext } from "react";
 import { View, SafeAreaView, StyleSheet } from 'react-native'
-import Colors from "../../assets/Colors";
-import Header from "../components/Header";
-import Languages from '../languages';
-import LanguageContext from '../languages/languageContext';
-import Spacer from "../components/Spacer";
-import Divider from "../components/Divider";
-import Heading from "../components/Heading";
-import Btn from "../components/Button";
-import Field from "../components/InputField";
-import User from "../components/UserProfile";
-import UserImage from "../components/userImage";
+import Colors from "../../../assets/Colors";
+import Header from "../../components/Header";
+import Languages from '../../languages';
+import LanguageContext from '../../languages/languageContext';
+import Spacer from "../../components/Spacer";
+import Divider from "../../components/Divider";
+import Heading from "../../components/Heading";
+import Btn from "../../components/Button";
+import Field from "../../components/InputField";
+import User from "../../components/UserProfile";
+import UserImage from "../../components/userImage";
 
 
 

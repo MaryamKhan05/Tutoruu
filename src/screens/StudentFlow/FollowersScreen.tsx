@@ -8,10 +8,10 @@ import {
     TouchableOpacity, 
     SafeAreaView 
 } from 'react-native'
-import Colors from "../../assets/Colors";
-import Auc from "../components/Auc";
-import Header from "../components/Header";
-import Spacer from "../components/Spacer";
+import Colors from "../../../assets/Colors";
+import Auc from "../../components/Auc";
+import Header from "../../components/Header";
+import Spacer from "../../components/Spacer";
 
 
 const Screen1: React.FC = () => {

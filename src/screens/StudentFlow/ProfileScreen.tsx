@@ -1,19 +1,19 @@
 import React, { useContext } from "react";
 import { View, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native';
 import Feather from "react-native-vector-icons/Feather"
-import Colors from "../../assets/Colors";
-import Box from "../components/Box";
-import Divider from "../components/Divider";
-import Header from "../components/Header";
-import Heading from "../components/Heading";
-import Section from "../components/Section";
-import Spacer from "../components/Spacer";
-import TextComponent from "../components/Text";
-import User from "../components/UserProfile";
-import Languages from '../languages';
-import LanguageContext from '../languages/languageContext';
-import UserImage from "../components/userImage";
-import Auc from "../components/Auc";
+import Colors from "../../../assets/Colors";
+import Box from "../../components/Box";
+import Divider from "../../components/Divider";
+import Header from "../../components/Header";
+import Heading from "../../components/Heading";
+import Section from "../../components/Section";
+import Spacer from "../../components/Spacer";
+import TextComponent from "../../components/Text";
+import User from "../../components/UserProfile";
+import Languages from '../../languages';
+import LanguageContext from '../../languages/languageContext';
+import UserImage from "../../components/userImage";
+import Auc from "../../components/Auc";
 
 interface Props {
     navigation: any;

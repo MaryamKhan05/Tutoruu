@@ -1,0 +1,106 @@
+import React, { useContext } from "react";
+import { Text, View, SafeAreaView, FlatList, StyleSheet } from 'react-native'
+import Colors from "../../../assets/Colors";
+import Btn from "../../components/Button";
+import Header from "../../components/Header";
+import Spacer from "../../components/Spacer";
+import Languages from '../../languages';
+import LanguageContext from '../../languages/languageContext';
+const messageData = [
+    {
+        id: 1,
+        status: 'online',
+        subject: 'Financial Management',
+        code: 'FIN201',
+        rating: '4.74',
+        sessions: '13',
+        slots: '10',
+        day: 'Sunday',
+        date: 'November 20',
+        topic: 'General Explanation'
+    },
+    {
+        id: 2,
+        status: 'online',
+        subject: 'Financial Management',
+        code: "FIN201",
+        rating: '4.74',
+        sessions: '13',
+        slots: '10',
+        day: 'Sunday',
+        date: 'November 20',
+        topic: 'General Explanation'
+    },
+    {
+        id: 3,
+        status: 'online',
+        subject: 'Financial Management',
+        code: "FIN201",
+        rating: '4.74',
+        sessions: '13',
+        slots: '10',
+        day: 'Sunday',
+        date: 'November 20',
+        topic: 'General Explanation'
+    },
+]
+const PickTopic: React.FC = () => {
+    const contextState = useContext(LanguageContext);
+    const language = contextState.language;
+    const Strings = Languages[language].texts;
+    return (
+        <SafeAreaView style={styles.container}>
+            <Header headerTitle={Strings.ST59} />
+            <Spacer />
+            <Spacer />
+            <View style={styles.innerContainer}>
+                <FlatList
+                    data={messageData}
+                    renderItem={({ item }) => {
+                        return (
+                            <View key={item.id} style={[styles.card, { width: 318, height: 69 }]}>
+                                <Text style={styles.slots}>{item.topic}</Text>
+                            </View>
+                        )
+                    }}
+                    keyExtractor={item => item.id.toString()}
+                />
+                <Btn text={Strings.ST56} height={48} width={330} route='PickLocation' />
+            </View>
+        </SafeAreaView >
+    )
+}
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: Colors.white,
+    },
+    innerContainer: {
+        width: '99%',
+        height: '90%',
+        alignSelf: 'center',
+        // margin: 10,
+        // marginTop: '30%'
+    },
+    card: {
+        shadowColor: 'gray',
+        shadowOpacity: 0.3,
+        shadowOffset: { width: 0, height: 2 },
+        elevation: 2,
+        backgroundColor: Colors.white,
+        alignSelf: 'center',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 20,
+        padding: 15,
+        margin: 20,
+    },
+    topic: {
+        fontWeight: '400',
+        fontSize: 16,
+        lineHeight: 24
+    }
+})
+
+export default PickTopic
