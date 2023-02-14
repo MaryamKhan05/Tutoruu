@@ -9,16 +9,16 @@ import { AntDesign } from '@expo/vector-icons';
 import RouteNames from '../RouteNames'
 import Button from '../../components/Buttonnn'
 import Colors from '../../../assets/Colors'
-
+import { Picker } from '@react-native-picker/picker'
 interface Props {
     navigation: any
     route: any
 }
 
 const CompleteRegisteration: React.FC<Props> = ({ navigation, route }) => {
-    const { selectedUni, userName, phoneNo } = route.params;
+    const { selectedUniversity, userName, phoneNo } = route.params;
 
-    const [selectedUniveristy, setSelectedUniversity] = useState(selectedUni)
+    const [selectedUni, setSelectedUni] = useState(selectedUniversity)
     const [UserName, setUserName] = useState(userName)
     const [PhoneNo, setPhoneNo] = useState(phoneNo)
     const contextState = useContext(LanguageContext);
@@ -27,39 +27,64 @@ const CompleteRegisteration: React.FC<Props> = ({ navigation, route }) => {
 
         language = contextState.language
     }
-    const Strings = Languages[language].texts
+    const Strings = Languages[0].texts
     return (
-        <SafeAreaView className='flex-1 justify-center  bg-orange-400'>
+       
 
-            <View className='flex-1 justify-evenly'>
+            <View 
+            style={{backgroundColor:Colors.orange}}
+            className='flex-1 justify-between'>
+                <SafeAreaView/>
                 <StatusBar style='light' />
-                <View className='self-center h-30'>
+                <View className='  h-10 justify-center m-3' >
                     <Image
-                        source={require('../../../assets/logo.jpg')}
+                        source={require('../../../assets/authlogo.png')}
                         resizeMode='contain'
-                        className=' bg-orange-400'
+                        className='h-40 w-40 self-center'
                     />
                 </View>
-                <View>
+                <View style={{flex:0.8}}>
 
                     <Text className='text-white text-2xl text-center p-2 m-2 font-bold self-center'>
                         {Strings.ST82}
                     </Text>
-                    <View className='bg-white m-4 p-5 justify-center rounded-xl'>
-                        <View className='flex-row justify-evenly'>
+                    <View className='bg-white m-5 p-5 justify-center rounded-xl'>
+                    <View className='flex-row justify-evenly'>
+<View  style={{flex:1}}>
+
                             <Input
-                                value={UserName}
+                                value={userName}
                                 title='User Name'
-                                placeholder='Enter Your User Name'
+                                placeholder='Enter A UserName'
                                 onChangeText={(text) => { setUserName(text) }}
                             />
-                            <Input
-                                value={selectedUniveristy}
-                                title='University'
-                                placeholder='Select Your University'
-                                onChangeText={(text) => { setSelectedUniversity(text) }}
-
-                            />
+</View>
+                            <View 
+                            style={{justifyContent:'center'}}
+                            className=" flex-1 m-1 p-1">
+                                <Text
+                                    className="text-center mx-3 font-bold  text-sm text-black self-start"
+                                >University</Text>
+                                <View
+                               
+                                    className=" border border-gray-300 h-11 rounded-3xl"
+                                  style={{justifyContent:'center',marginVertical:5,marginHorizontal:10}}
+                                >
+                                    <Picker
+                            placeholder='Select Your Uni'
+                           style={{color: 'black'}}
+                           
+                                        selectedValue={selectedUni}
+                                        onValueChange={(itemValue, itemIndex) =>
+                                           {
+                                            setSelectedUni(itemValue)}
+                                        }>
+                                        <Picker.Item label="Java" value="java" />
+                                        <Picker.Item label="JavaScript" value="js" />
+                                    </Picker>
+                                </View
+                                >
+                            </View>
 
                         </View>
                         <Input
@@ -70,6 +95,7 @@ const CompleteRegisteration: React.FC<Props> = ({ navigation, route }) => {
 
                         />
                         <Button
+                         image='arrowright'
                             color={Colors.orange}
                             title='Create Account'
                             onPress={() => { navigation.navigate(RouteNames.MagicLink) }}
@@ -80,7 +106,7 @@ const CompleteRegisteration: React.FC<Props> = ({ navigation, route }) => {
                 </View>
 
             </View>
-        </SafeAreaView>
+       
     )
 }
 export default CompleteRegisteration;

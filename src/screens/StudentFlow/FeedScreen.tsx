@@ -55,7 +55,7 @@ const FeedScreen: React.FC<Props> = ({ navigation }) => {
   const [count, setCount] = useState(0);
   const contextState = useContext(LanguageContext);
   const language = contextState.language;
-  const Strings = Languages[language].texts;
+  const Strings = Languages[0].texts;
   const [Message, setMessage] = useState();
   const [Like, setLike] = useState();
   const [Dislike, setDislike] = useState()

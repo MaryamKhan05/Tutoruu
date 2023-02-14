@@ -22,35 +22,35 @@ const SignUpForm: React.FC<Props> = ({ navigation }) => {
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
     const [selectedUni, setSelectedUni] = useState('');
-const[dropDownTextColor,setDropDownTextColor]=useState(false)
+
     const contextState = useContext(LanguageContext);
     let language = 'en'
     if (contextState != null) {
 
         language = contextState.language
     }
-    const Strings = Languages[language].texts
+    const Strings = Languages[0].texts
     return (
-        <SafeAreaView className='flex-1 justify-center  bg-orange-400'>
+       
 
-            <View className='flex-1 justify-evenly'>
+            <View 
+            style={{backgroundColor:Colors.orange}}
+            className='flex-1 justify-center'>
+                <SafeAreaView/>
                 <StatusBar style='light' />
-                <View 
-                
-             //   className='self-center h-20 bg-gray-400 items-center'
-                >
+                <View className=' h-20 justify-center m-3' >
                     <Image
-                        source={require('../../../assets/logo.jpg')}
+                        source={require('../../../assets/authlogo.png')}
                         resizeMode='contain'
-                        className='bg-orange-500 self-center m-1'
+                        className='h-40 w-40 self-center'
                     />
                 </View>
                 <View>
 
-                    <Text className='text-white text-2xl font-bold self-center'>
+                    <Text className='text-white text-2xl py-2 font-bold self-center'>
                         {Strings.ST72}
                     </Text>
-                    <View className='bg-white p-2 mx-5 my-2 justify-center rounded-xl'>
+                    <View className='bg-white p-4 mx-4 my-2 justify-center rounded-xl'>
                         <Input
                             value={name}
                             title='Name'
@@ -75,9 +75,9 @@ const[dropDownTextColor,setDropDownTextColor]=useState(false)
 </View>
                             <View 
                             style={{justifyContent:'center'}}
-                            className=" flex-1">
+                            className=" flex-1 m-1 p-1">
                                 <Text
-                                    className="text-center mx-3  text-sm text-black self-start"
+                                    className="text-center mx-3 font-bold  text-sm text-black self-start"
                                 >University</Text>
                                 <View
                                
@@ -86,11 +86,11 @@ const[dropDownTextColor,setDropDownTextColor]=useState(false)
                                 >
                                     <Picker
                             placeholder='Select Your Uni'
-                           style={{color: dropDownTextColor? 'black':'gray'}}
+                           style={{color: 'black'}}
                            
                                         selectedValue={selectedUni}
                                         onValueChange={(itemValue, itemIndex) =>
-                                           { setDropDownTextColor(true)
+                                           {
                                             setSelectedUni(itemValue)}
                                         }>
                                         <Picker.Item label="Java" value="java" />
@@ -126,10 +126,11 @@ const[dropDownTextColor,setDropDownTextColor]=useState(false)
                         <Button
                             color={Colors.orange}
                             title='Create Account'
-                            image='https://png.pngtree.com/png-vector/20190411/ourmid/pngtree-vector-forward-icon-png-image_925823.jpg'
+                            //image='https://png.pngtree.com/png-vector/20190411/ourmid/pngtree-vector-forward-icon-png-image_925823.jpg'
+                            image='arrowright'
                             onPress={() => {
                                 navigation.navigate(RouteNames.CompleteRegisteration, {
-                                    selectedUni,
+                                    selectedUniversity:  selectedUni,
                                     phoneNo,
                                     userName,
                                 })
@@ -138,13 +139,13 @@ const[dropDownTextColor,setDropDownTextColor]=useState(false)
 
                     </View>
                     <View className='flex-row justify-center items-center'>
-                        <Text className='text-white text-lg  self-center'>
+                        <Text className='text-white text-sm  self-center'>
                             {Strings.ST73}
                         </Text>
                         <TouchableOpacity
                             onPress={() => { navigation.navigate(RouteNames.LoginScreen) }}
                         >
-                            <Text className='text-white text-lg border-b-2 border-white font-bold self-center'>
+                            <Text className='text-white text-sm border-b-2 border-white font-bold self-center'>
                                 Login
                             </Text>
                         </TouchableOpacity>
@@ -152,7 +153,7 @@ const[dropDownTextColor,setDropDownTextColor]=useState(false)
                     </View>
                 </View>
             </View>
-        </SafeAreaView>
+        
     )
 }
 export default SignUpForm;

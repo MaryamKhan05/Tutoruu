@@ -24,31 +24,34 @@ const UpdatePassword: React.FC<Props> = ({ navigation }) => {
 
         language = contextState.language
     }
-    const Strings = Languages[language].texts
+    const Strings = Languages[0].texts
     return (
-        <SafeAreaView className='flex-1 justify-center '>
+    
 
-            <View className='flex-1 justify-evenly bg-orange-500'>
+            <View className='flex-1 justify-between'
+            style={{backgroundColor:Colors.orange}}
+            >
+                <SafeAreaView/>
                 <StatusBar style='light' />
                 <View className='self-center h-30'>
                     <Image
-                        source={require('../../../assets/logo.jpg')}
+                        source={require('../../../assets/authlogo.png')}
                         resizeMode='contain'
-                        className='bg-orange-500'
+                        className='h-40 w-40'
                     />
                 </View>
-                <View>
+                <View style={{flex:0.9,paddingVertical:10}}>
                     <View className='self-center justify-center m-5 items-center'>
 
                         <Text className='text-white text-2xl text-center font-bold self-center'>
                             {Strings.ST76}
                         </Text>
-                        <Text className='text-white text-lg text-center font-bold self-center'>
+                        <Text className='text-white text-lg text-center  self-center'>
                             {Strings.ST77}
                         </Text>
                     </View>
 
-                    <View className='bg-white m-4 p-5 justify-center rounded-xl'>
+                    <View className='bg-white m-4 p-5 py-6 justify-center rounded-xl'>
 
                         <Input
                             value={password}
@@ -65,6 +68,7 @@ const UpdatePassword: React.FC<Props> = ({ navigation }) => {
                             secureTextEntry
                         />
                         <Button
+                        image='arrowright'
                             color={Colors.orange}
                             title='Update Password'
                             onPress={() => { alert(password) }}
@@ -76,7 +80,7 @@ const UpdatePassword: React.FC<Props> = ({ navigation }) => {
                 </View>
 
             </View>
-        </SafeAreaView>
+    
     )
 }
 export default UpdatePassword;

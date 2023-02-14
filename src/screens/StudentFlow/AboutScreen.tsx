@@ -23,7 +23,7 @@ const AboutScreen: React.FC<Props> = ({ navigation }) => {
 
     const contextState = useContext(LanguageContext);
     const language = contextState.language;
-    const Strings = Languages[language].texts;
+    const Strings = Languages[0].texts;
     return (
         <SafeAreaView  style={styles.container}>
             <Header headerTitle={Strings.ST11} />

@@ -58,7 +58,7 @@ const renderSectionHeader = ({ section }: { section: { title: string } }) => (
 const Notification: React.FC = () => {
     const contextState = useContext(LanguageContext);
     const language = contextState.language;
-    const Strings = Languages[language].texts;
+    const Strings = Languages[0].texts;
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView showsVerticalScrollIndicator={false} >
