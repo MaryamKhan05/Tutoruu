@@ -17,8 +17,15 @@ interface Props{
 
 const SettingsScreen: React.FC<Props> = ({ navigation }) => {
     const contextState = useContext(LanguageContext);
-    const language = contextState.language;
-    const Strings = Languages[language].texts;
+    let Strings: any = {}
+    if (contextState != null) {
+  
+      const  language = contextState.language
+        if (language === 'en') {
+            Strings = Languages[0].texts
+  
+        }
+    }
   
     
     return (

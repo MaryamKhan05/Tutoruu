@@ -12,6 +12,7 @@ import AboutScreen from '../screens/StudentFlow/AboutScreen';
 import SupportScreen from '../screens/StudentFlow/SupportScreen';
 import ProfileScreen from '../screens/StudentFlow/ProfileScreen';
 import SettingsScreen from '../screens/StudentFlow/SettingsScreen';
+import MarketPlace from '../screens/StudentFlow/MarketPlace';
 import Bubble from '../components/IconBubble';
 
 const Drawer = createDrawerNavigator();
@@ -24,6 +25,7 @@ const color = Colors.orange;
 const Root: React.FC<Props> = ({ navigation }) => {
   return (
     <Drawer.Navigator
+    
       initialRouteName='Feed'
       screenOptions={({ navigation }) => ({
         headerLeft: () =>
@@ -33,13 +35,66 @@ const Root: React.FC<Props> = ({ navigation }) => {
             color={color}
             style={{ marginLeft: 10 }}
             onPress={navigation.toggleDrawer}
-          />
-      })}
+          />,
+          drawerActiveBackgroundColor: Colors.lightorange,
+          drawerActiveTintColor: Colors.black
+
+      
+        }
+      
+      )
+    }
     >
       <Drawer.Screen
         name='Feed'
         component={FeedScreen}
         options={{
+          drawerIcon: ({ focused, size }) => (
+            <AntDesign
+              name="home"
+              size={size}
+              color={Colors.black}
+            />
+          ),
+          headerTitle: () =>
+            <Image
+              source={require('../../assets/logo.jpg')}
+              style={{ height: 38, width: 99, alignSelf:'center' }} />,
+          headerRight: () =>
+            [<View style={styles.icon} >
+              <TouchableOpacity
+                onPress={() => navigation.navigate('Notification')}>
+                <Bubble
+                  icon={
+                    <FontAwesome
+                      name="bell-o"
+                      size={size}
+                      color={color}
+                      style={{ marginHorizontal: 10 }}
+                    />} />
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => navigation.navigate('Search')}>
+                <Bubble icon=
+                  {<Ionicons
+                    name="search-outline"
+                    size={size}
+                    color={color} />} />
+              </TouchableOpacity>
+            </View>
+            ]
+        }} />
+         <Drawer.Screen
+        name='MarketPlace'
+        component={MarketPlace}
+        options={{
+          drawerIcon: ({ focused, size }) => (
+            <Ionicons
+              name="library"
+              size={size}
+              color={Colors.black}
+            />
+          ),
           headerTitle: () =>
             <Image
               source={require('../../assets/logo.jpg')}

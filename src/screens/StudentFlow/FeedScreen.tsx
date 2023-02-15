@@ -50,12 +50,20 @@ interface Props {
   navigation: any;
   focused: any;
 }
-const FeedScreen: React.FC<Props> = ({ navigation }) => {
+const FeedScreen: React.FC<Props> = () => {
 
   const [count, setCount] = useState(0);
   const contextState = useContext(LanguageContext);
-  const language = contextState.language;
-  const Strings = Languages[0].texts;
+
+  let Strings: any = {}
+  if (contextState != null) {
+
+    const  language = contextState.language
+      if (language === 'en') {
+          Strings = Languages[0].texts
+
+      }
+  }
   const [Message, setMessage] = useState();
   const [Like, setLike] = useState();
   const [Dislike, setDislike] = useState()

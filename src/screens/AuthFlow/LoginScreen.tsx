@@ -21,11 +21,11 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
     const [password, setPassword] = useState('')
 
     const contextState = useContext(LanguageContext);
-    let language = 'en'
+  
     let Strings: any = {}
     if (contextState != null) {
 
-        language = contextState.language
+      const  language = contextState.language
         if (language === 'en') {
             Strings = Languages[0].texts
 
@@ -73,7 +73,7 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
                     <Button
                         color={Colors.orange}
                         title='Login'
-                        onPress={() => { alert(email + "    " + password) }}
+                        onPress={() => {navigation.navigate('MainStackStudent') }}
                     />
                     <View className='justify-center  justify-items-center flex-row gap-3'>
 

@@ -13,8 +13,15 @@ import LanguageContext from '../../languages/languageContext';
 
 const PaymentScreen: React.FC = () => {
     const contextState = useContext(LanguageContext);
-    const language = contextState.language;
-    const Strings = Languages[language].texts;
+    let Strings: any = {}
+  if (contextState != null) {
+
+    const  language = contextState.language
+      if (language === 'en') {
+          Strings = Languages[0].texts
+
+      }
+  }
     return (
         <SafeAreaView style={styles.container}>
             <Header headerTitle="Payment" />

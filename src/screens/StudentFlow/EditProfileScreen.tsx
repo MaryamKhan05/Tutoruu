@@ -18,10 +18,17 @@ interface Props {
     followers: undefined;
   }
 
-const Edit: React.FC<Props> = ({ followers }) => {
+const Edit: React.FC<Props> = (props) => {
     const contextState = useContext(LanguageContext);
-    const language = contextState.language;
-    const Strings = Languages[0].texts;
+    let Strings: any = {}
+    if (contextState != null) {
+  
+      const  language = contextState.language
+        if (language === 'en') {
+            Strings = Languages[0].texts
+  
+        }
+    }
     return (
         <SafeAreaView style={styles.container}>
             <Header headerTitle={Strings.ST33} />
