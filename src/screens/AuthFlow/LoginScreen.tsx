@@ -44,7 +44,7 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
                 <Image
                     source={require('../../../assets/authlogo.png')}
                     resizeMode='contain'
-                    className='w-48 h-48'
+                    className='w-40 h-40'
                 />
 
 
