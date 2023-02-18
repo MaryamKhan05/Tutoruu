@@ -8,7 +8,7 @@ const stack = createNativeStackNavigator()
 
 
 const StudentStackMain: React.FC = () => {
-    const  [user,setUser]=useState(true)
+    const  [user,setUser]=useState(false)
     return (
         
         <stack.Navigator screenOptions={{headerShown:false}}>

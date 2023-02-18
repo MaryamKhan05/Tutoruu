@@ -25,7 +25,7 @@ const color = Colors.orange;
 const Root: React.FC<Props> = ({ navigation }) => {
   return (
     <Drawer.Navigator
-    
+
       initialRouteName='Feed'
       screenOptions={({ navigation }) => ({
         headerLeft: () =>
@@ -36,14 +36,14 @@ const Root: React.FC<Props> = ({ navigation }) => {
             style={{ marginLeft: 10 }}
             onPress={navigation.toggleDrawer}
           />,
-          drawerActiveBackgroundColor: Colors.lightorange,
-          drawerActiveTintColor: Colors.black
+        drawerActiveBackgroundColor: Colors.lightorange,
+        drawerActiveTintColor: Colors.black
 
-      
-        }
-      
+
+      }
+
       )
-    }
+      }
     >
       <Drawer.Screen
         name='Feed'
@@ -59,7 +59,8 @@ const Root: React.FC<Props> = ({ navigation }) => {
           headerTitle: () =>
             <Image
               source={require('../../assets/logo.jpg')}
-              style={{ height: 38, width: 99, alignSelf:'center' }} />,
+              style={{ height: 38, width: 99, alignSelf: 'center' }} />,
+              headerTitleAlign:'center',
           headerRight: () =>
             [<View style={styles.icon} >
               <TouchableOpacity
@@ -84,7 +85,7 @@ const Root: React.FC<Props> = ({ navigation }) => {
             </View>
             ]
         }} />
-         <Drawer.Screen
+      <Drawer.Screen
         name='MarketPlace'
         component={MarketPlace}
         options={{
@@ -98,7 +99,8 @@ const Root: React.FC<Props> = ({ navigation }) => {
           headerTitle: () =>
             <Image
               source={require('../../assets/logo.jpg')}
-              style={{ height: 38, width: 99, alignSelf:'center' }} />,
+              style={{ height: 38, width: 99, alignSelf: 'center' }} />,
+headerTitleAlign:'center',
           headerRight: () =>
             [<View style={styles.icon} >
               <TouchableOpacity

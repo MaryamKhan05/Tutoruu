@@ -40,8 +40,23 @@ interface Props {
 }
 const CardList: React.FC<Props> = ({ view }) => {
     const contextState = useContext(LanguageContext);
-    const language = contextState.language;
-    const Strings = Languages[language].texts;
+  
+    let Strings: any = {}
+    if (contextState != null) {
+
+      const  language = contextState.language
+        if (language === 'es') {
+            Strings = Languages[0].texts
+
+        }
+       else if (language === 'en'){
+            Strings = Languages[1].texts  
+        }
+        else{
+            //default language if not any language provided
+            Strings = Languages[0].texts
+        }
+    }
     const renderItem = ({ item }) => {
         return (
             <View style={styles.card}>

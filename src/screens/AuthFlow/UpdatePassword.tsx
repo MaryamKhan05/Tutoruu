@@ -19,12 +19,23 @@ const UpdatePassword: React.FC<Props> = ({ navigation }) => {
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
     const contextState = useContext(LanguageContext);
-    let language = 'en'
+  
+    let Strings: any = {}
     if (contextState != null) {
 
-        language = contextState.language
+      const  language = contextState.language
+        if (language === 'en') {
+            Strings = Languages[0].texts
+
+        }
+       else if (language === 'es'){
+            Strings = Languages[1].texts  
+        }
+        else{
+            //default language if not any language provided
+            Strings = Languages[0].texts
+        }
     }
-    const Strings = Languages[0].texts
     return (
     
 

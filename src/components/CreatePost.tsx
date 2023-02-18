@@ -15,6 +15,7 @@ import Auc from "./Auc"
 const CreatePost: React.FC = () => {
     const [modalVisible, setModalVisible] = useState(false);
     const contextState = useContext(LanguageContext);
+  
     let Strings: any = {}
     if (contextState != null) {
 
@@ -22,6 +23,13 @@ const CreatePost: React.FC = () => {
         if (language === 'en') {
             Strings = Languages[0].texts
 
+        }
+       else if (language === 'es'){
+            Strings = Languages[1].texts  
+        }
+        else{
+            //default language if not any language provided
+            Strings = Languages[0].texts
         }
     }
     const [isOn, setIsOn] = useState(false);

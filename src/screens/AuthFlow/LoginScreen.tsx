@@ -30,6 +30,13 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
             Strings = Languages[0].texts
 
         }
+       else if (language === 'es'){
+            Strings = Languages[1].texts  
+        }
+        else{
+            //default language if not any language provided
+            Strings = Languages[0].texts
+        }
     }
     return (
 

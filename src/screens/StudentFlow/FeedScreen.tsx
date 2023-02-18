@@ -14,6 +14,7 @@ import Spacer from '../../components/Spacer'
 import Colors from '../../../assets/Colors'
 import CreatePost from '../../components/CreatePost'
 import Header from '../../components/CreatePost'
+
 const size = 20;
 const color = Colors.fadedgray;
 
@@ -55,9 +56,23 @@ const FeedScreen: React.FC<Props> = ({ navigation }) => {
 
   const [count, setCount] = useState(0);
   const contextState = useContext(LanguageContext);
-  const language = contextState.language;
-  // const Strings = Languages[language].texts;
-  // const tw = useTailwind();
+  
+  let Strings: any = {}
+  if (contextState != null) {
+
+    const  language = contextState.language
+      if (language === 'en') {
+          Strings = Languages[0].texts
+
+      }
+     else if (language === 'es'){
+          Strings = Languages[1].texts  
+      }
+      else{
+          //default language if not any language provided
+          Strings = Languages[0].texts
+      }
+  }
 
   const [Message, setMessage] = useState();
   const [Like, setLike] = useState();

@@ -16,14 +16,21 @@ interface Props {
 
 const SignUpHome: React.FC<Props> = ({ navigation }) => {
     const contextState = useContext(LanguageContext);
-    let language = 'en'
+  
     let Strings: any = {}
     if (contextState != null) {
 
-        language = contextState.language
+      const  language = contextState.language
         if (language === 'en') {
             Strings = Languages[0].texts
 
+        }
+       else if (language === 'es'){
+            Strings = Languages[1].texts  
+        }
+        else{
+            //default language if not any language provided
+            Strings = Languages[0].texts
         }
     }
     return (

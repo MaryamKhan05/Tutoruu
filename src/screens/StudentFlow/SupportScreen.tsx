@@ -14,13 +14,21 @@ interface Props{
 
 const SupportScreen: React.FC<Props> = ({ navigation }) => {
     const contextState = useContext(LanguageContext);
+  
     let Strings: any = {}
     if (contextState != null) {
-  
+
       const  language = contextState.language
         if (language === 'en') {
             Strings = Languages[0].texts
-  
+
+        }
+       else if (language === 'es'){
+            Strings = Languages[1].texts  
+        }
+        else{
+            //default language if not any language provided
+            Strings = Languages[0].texts
         }
     }
     return (
