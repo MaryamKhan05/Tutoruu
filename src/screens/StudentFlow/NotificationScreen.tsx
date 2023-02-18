@@ -1,7 +1,10 @@
 import React, { useContext } from "react";
-import { Text, View, Image, SafeAreaView, ScrollView, SectionList, StyleSheet } from "react-native";
+import { Text, View, Image, ScrollView, SectionList, StyleSheet } from "react-native";
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import Header from "../../components/Header";
 import Colors from '../../../assets/Colors';
+
 import Languages from '../../languages';
 import LanguageContext from '../../languages/languageContext';
 const sections = [
@@ -10,7 +13,7 @@ const sections = [
         data: [
             {
                 key: 'item1',
-                msg: 'Victoria Hanson mentioned you in a comment',
+                msg: 'Victoria Hanson mentioned you in a comment ',
                 time: '1 hrs ago',
                 avatar: 'https://www.bootdey.com/img/Content/avatar/avatar1.png',
             },
@@ -57,19 +60,13 @@ const renderSectionHeader = ({ section }: { section: { title: string } }) => (
 
 const Notification: React.FC = () => {
     const contextState = useContext(LanguageContext);
-    let Strings: any = {}
-    if (contextState != null) {
-  
-      const  language = contextState.language
-        if (language === 'en') {
-            Strings = Languages[0].texts
-  
-        }
-    }
+    const language = contextState.language;
+    const Strings = Languages[language].texts;
     return (
         <SafeAreaView style={styles.container}>
+
+            <Header headerTitle={Strings.ST24} />
             <ScrollView showsVerticalScrollIndicator={false} >
-                <Header headerTitle={Strings.ST24} />
                 <View style={styles.innerContainer}>
                     <SectionList
                         sections={sections}
@@ -88,35 +85,36 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.white,
     },
     innerContainer: {
-        width: '99%',
-        height: '100%',
+        width: wp('99%'),
+        height: hp('100%'),
         alignSelf: 'center',
         justifyContent: 'center',
-        margin: 10
+        margin: wp('2%')
     },
     title: {
-        fontSize: 16,
+        fontSize: hp('1.8%'),
         fontWeight: '500',
         fontStyle: 'normal',
         lineHeight: 24,
         color: Colors.black,
-        margin: 10
+        margin: wp('2%')
     },
     time: {
-        fontSize: 10,
+        fontSize: hp('1.3%'),
         fontWeight: '300',
         lineHeight: 15,
         color: Colors.black,
         fontStyle: 'normal',
         alignSelf: 'center',
-        margin: 10
+        marginRight: hp('2%'),
+        marginLeft: hp('1%'),
     },
     card1: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
         backgroundColor: Colors.lightorange,
-        paddingVertical: 10,
+        paddingVertical: hp('1.5%'),
         paddingHorizontal: 3
     },
     card2: {
@@ -124,32 +122,36 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         backgroundColor: Colors.white,
-        paddingVertical: 10,
-        paddingHorizontal: 3
+        paddingVertical: hp('1%'),
+        // paddingHorizontal: hp('1')
     },
     msg1: {
-        fontSize: 12,
+        fontSize: hp('1.4'),
         fontWeight: '500',
         lineHeight: 18,
         fontStyle: 'normal',
         alignSelf: 'center',
-        color: Colors.orange
+        color: Colors.orange,
+        // backgroundColor:'red',
+        width: wp('60%')
     },
     msg2: {
-        fontSize: 12,
+        fontSize: hp('1.4'),
         fontWeight: '500',
         lineHeight: 18,
         fontStyle: 'normal',
         alignSelf: 'center',
-        color: Colors.black
+        color: Colors.black,
+        width: wp('60%')
     },
     avatar: {
-        width: 40,
-        height: 40,
-        borderRadius: 20,
-        marginRight: 5,
-        marginLeft: 10,
+        width: wp('15%'),
+        height: hp('7%'),
+        borderRadius: 50,
+        marginRight: wp('1'),
+        marginLeft: wp('1'),
         alignSelf: 'center',
+        resizeMode: 'contain'
     },
 })
 

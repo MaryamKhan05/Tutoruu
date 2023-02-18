@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
-import { Text, View, SafeAreaView, FlatList, StyleSheet } from 'react-native'
+import { Text, View, FlatList, StyleSheet } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import Colors from "../../../assets/Colors";
 import Btn from "../../components/Button";
 import Header from "../../components/Header";
@@ -42,17 +44,10 @@ const messageData = [
         date: 'November 20'
     },
 ]
-const PickTime: React.FC = ({navigation}) => {
+const PickTime: React.FC = ({ navigation }) => {
     const contextState = useContext(LanguageContext);
-    let Strings: any = {}
-    if (contextState != null) {
-  
-      const  language = contextState.language
-        if (language === 'en') {
-            Strings = Languages[0].texts
-  
-        }
-    }
+    const language = contextState.language;
+    const Strings = Languages[language].texts;
     return (
         <SafeAreaView style={styles.container}>
             <Header headerTitle={Strings.ST57} />
@@ -83,11 +78,11 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.white,
     },
     innerContainer: {
-        width: '99%',
-        height: '90%',
+        width: wp('99%'),
+        height: hp('85%'),
         alignSelf: 'center',
-        // margin: 10,
-        // marginTop: '30%'
+        paddingBottom: hp('2%'),
+        // backgroundColor:'red'
     },
     card: {
         shadowColor: 'gray',
@@ -99,37 +94,39 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 20,
-        padding: 15,
-        margin: 20,
+        margin: 10,
+        width: wp('90%'),
+        height: hp('8%'),
+        // backgroundColor:'pink',
+        padding: wp('4%')
+    },
+    activeCard: {
+        backgroundColor: Colors.lightorange,
+        alignSelf: 'center',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 20,
+        padding: wp('4%'),
+        margin: 10,
+        width: wp('90%'),
+        height: hp('8%'),
     },
     text: {
-        fontSize: 14,
+        fontSize: hp('2%'),
         fontWeight: '500',
-        lineHeight: 21,
+        lineHeight: 24
     },
     day: {
-        fontSize: 16,
+        fontSize: hp('2%'),
         fontWeight: '400',
         lineHeight: 24,
         color: Colors.black
     },
-    fadedGray: {
+    slots: {
         fontSize: 12,
+        fontWeight: '300',
         lineHeight: 18,
-        fontWeight: '500',
-        color: Colors.fadedgray
-    },
-    rating: {
-        fontWeight: '400',
-        fontSize: 10,
-        lineHeight: 15,
         color: Colors.orange
-    },
-    slots:{
-        fontSize:12,
-        fontWeight:'300',
-        lineHeight:18,
-        color:Colors.orange
     }
 
 })

@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
-import { View, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native';
+import { View, StyleSheet,  ScrollView, TouchableOpacity } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import Feather from "react-native-vector-icons/Feather"
 import Colors from "../../../assets/Colors";
 import Box from "../../components/Box";
@@ -22,19 +23,13 @@ interface Props {
 
 const ProfileScreen: React.FC<Props> = ({ navigation }) => {
     const contextState = useContext(LanguageContext);
-    let Strings: any = {}
-    if (contextState != null) {
-  
-      const  language = contextState.language
-        if (language === 'en') {
-            Strings = Languages[0].texts
-  
-        }
-    }
+    const language = contextState.language;
+    const Strings = Languages[language].texts;
 
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView showsVerticalScrollIndicator={false} style={styles.innerContainer} >
+               
                 <Header headerTitle={Strings.ST30} />
                 <Spacer />
                 <View style={styles.userProfileContainer}>
@@ -69,7 +64,8 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: Colors.white,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        // marginTop:20
     },
     innerContainer: {
         // width: '97%'

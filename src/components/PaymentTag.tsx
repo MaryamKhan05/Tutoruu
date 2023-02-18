@@ -1,5 +1,6 @@
 import React from "react";
 import { Text, View, StyleSheet } from "react-native";
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import Colors from "../../assets/Colors";
 
 interface Props {
@@ -20,7 +21,7 @@ const PaymentTag: React.FC<Props> = ({ text }) => {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: Colors.lightorange,
-        height: 19,
+        height: hp('2.3%'),
         borderRadius: 5,
         justifyContent: 'center',
         alignItems: 'center',
@@ -28,13 +29,13 @@ const styles = StyleSheet.create({
     },
     text: {
         fontWeight: '500',
-        fontSize: 10,
+        fontSize: hp('1.3%'),
         lineHeight: 15,
         color: Colors.orange
     },
     time: {
         fontWeight: '500',
-        fontSize: 14,
+        fontSize: hp('1.8%'),
         lineHeight: 21,
     }
 })

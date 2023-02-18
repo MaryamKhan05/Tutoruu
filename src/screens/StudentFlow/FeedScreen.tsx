@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { StyleSheet, Text, View, FlatList, Image, TouchableOpacity } from 'react-native'
-import { ScrollView } from 'react-native-virtualized-view'
+import { ScrollView } from 'react-native-gesture-handler'
+// import { useTailwind } from 'tailwind-rn/dist'
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import Feather from 'react-native-vector-icons/Feather'
@@ -12,7 +13,7 @@ import Username from '../../components/UserName'
 import Spacer from '../../components/Spacer'
 import Colors from '../../../assets/Colors'
 import CreatePost from '../../components/CreatePost'
-
+import Header from '../../components/CreatePost'
 const size = 20;
 const color = Colors.fadedgray;
 
@@ -50,20 +51,14 @@ interface Props {
   navigation: any;
   focused: any;
 }
-const FeedScreen: React.FC<Props> = () => {
+const FeedScreen: React.FC<Props> = ({ navigation }) => {
 
   const [count, setCount] = useState(0);
   const contextState = useContext(LanguageContext);
+  const language = contextState.language;
+  // const Strings = Languages[language].texts;
+  // const tw = useTailwind();
 
-  let Strings: any = {}
-  if (contextState != null) {
-
-    const  language = contextState.language
-      if (language === 'en') {
-          Strings = Languages[0].texts
-
-      }
-  }
   const [Message, setMessage] = useState();
   const [Like, setLike] = useState();
   const [Dislike, setDislike] = useState()
@@ -72,13 +67,14 @@ const FeedScreen: React.FC<Props> = () => {
   return (
 
     <View style={styles.container}>
+
       <Username />
       <ToggleButtons />
       <ScrollView
         showsVerticalScrollIndicator={false}
       >
         <Spacer />
-      <CreatePost />
+        <CreatePost />
         <FlatList
           showsVerticalScrollIndicator={false}
           data={messageData}
@@ -169,7 +165,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     // backgroundColor:'red',
-    alignItems:'center'
+    alignItems: 'center'
   },
   cardHeader: {
     flexDirection: 'row',

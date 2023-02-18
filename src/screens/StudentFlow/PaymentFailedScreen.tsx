@@ -1,5 +1,8 @@
 import React, { useContext } from "react";
-import { Text, View, SafeAreaView, StyleSheet } from "react-native";
+import { Text, View, StyleSheet } from "react-native";
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+
 
 import Colors from "../../../assets/Colors";
 import Btn from "../../components/Button";
@@ -14,28 +17,34 @@ import LanguageContext from '../../languages/languageContext';
 
 const FailedScreen: React.FC = () => {
     const contextState = useContext(LanguageContext);
-    let Strings: any = {}
-    if (contextState != null) {
-  
-      const  language = contextState.language
-        if (language === 'en') {
-            Strings = Languages[0].texts
-  
-        }
-    }
+    const language = contextState.language;
+    const Strings = Languages[language].texts;
     return (
         <SafeAreaView style={styles.container}>
             <Spacer />
-            <Header headerTitle="Payment" />
+            <Header
+                headerTitle="Payment"
+            />
             <View style={styles.innerContainer}>
-                <Completion image={require('../../../assets/failed.jpg')} text={Strings.ST50} color={Colors.black} />
+                <Completion
+                    image={require('../../../assets/failed.jpg')}
+                    text={Strings.ST50}
+                    color={Colors.black}
+                />
                 <Text style={styles.try}> {Strings.ST51} </Text>
-                <Btn text={Strings.ST52} route={() => { }} width={270} height={41} />
+                <Btn
+                    text={Strings.ST52}
+                    route={() => { }}
+                    width={wp('72%')}
+                    height={hp('4.5%')}
+                />
                 <Spacer />
                 <Divider />
                 <Spacer />
                 <Spacer />
-                <PaymentCard text={Strings.ST53} />
+                <PaymentCard
+                    text={Strings.ST53}
+                />
                 <Spacer />
             </View>
         </SafeAreaView>
@@ -48,14 +57,15 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.white,
     },
     innerContainer: {
-        width: '99%',
-        height: '100%',
+        width: wp('99%'),
+        height: hp('100%'),
         alignSelf: 'center',
         margin: 10,
-        marginTop: '30%'
+        marginTop: hp('10%'),
+        // backgroundColor:'red'
     },
     text: {
-        fontSize: 12,
+        fontSize: hp('2%'),
         fontWeight: '500',
         lineHeight: 18,
         color: Colors.black,
@@ -64,7 +74,7 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     btnText: {
-        fontSize: 14,
+        fontSize: hp('2%'),
         fontWeight: '700',
         lineHeight: 21,
         color: Colors.orange
@@ -72,7 +82,7 @@ const styles = StyleSheet.create({
     try: {
         textAlign: 'center',
         fontWeight: '400',
-        fontSize: 14,
+        fontSize: hp('2%'),
         lineHeight: 21,
         color: Colors.black
     }

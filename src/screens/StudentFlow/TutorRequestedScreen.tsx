@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
-import { Text, View, StyleSheet, Image, SafeAreaView } from "react-native";
+import { Text, View, StyleSheet, Image } from "react-native";
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import Colors from "../../../assets/Colors";
 import Card from "../../components/Card";
 import Header from "../../components/Header";
@@ -10,22 +12,13 @@ import LanguageContext from '../../languages/languageContext';
 
 const RequestedScreen: React.FC = () => {
     const contextState = useContext(LanguageContext);
-    let Strings: any = {}
-    if (contextState != null) {
-  
-      const  language = contextState.language
-        if (language === 'en') {
-            Strings = Languages[0].texts
-  
-        }
-    }
+    const language = contextState.language;
+    const Strings = Languages[language].texts;
     return (
         <SafeAreaView style={styles.container}>
-            <Spacer />
-            <Spacer />
-            <Spacer />
-            <Spacer />
+
             <Header headerTitle="FILM 3021 Tutors" />
+            <Spacer />
             <View style={styles.innerContainer}>
                 <Image
                     source={require('../../../assets/requested.jpg')}
@@ -48,30 +41,19 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: Colors.white,
-        justifyContent: 'center'
+        // justifyContent: 'center'
     },
     innerContainer: {
-        width: '80%',
-        height: '90%',
+        width: wp('80%'),
+        height: hp('70%'),
         alignSelf: 'center',
-        margin: 10,
-        marginTop: '30%',
+        // margin: 10,
+        marginTop: hp('10%'),
         // backgroundColor: "red"
-    },
-    text: {
-        color: Colors.black,
-        fontStyle: 'normal',
-        fontSize: 14,
-        fontWeight: '400',
-        lineHeight: 21,
-        // textAlign: 'center',
-        width: 284,
-        // alignSelf: 'center',
-        backgroundColor: 'red'
     },
     heading: {
         fontStyle: 'normal',
-        fontSize: 20,
+        fontSize: hp('3%'),
         fontWeight: '700',
         lineHeight: 30,
         textAlign: 'center',
@@ -80,6 +62,9 @@ const styles = StyleSheet.create({
     },
     image: {
         alignSelf: 'center',
+        height: hp('15%'),
+        width: wp('35%'),
+        resizeMode: 'contain'
     }
 })
 
