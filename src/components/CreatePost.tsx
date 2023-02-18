@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react"
-import { View, Image, Text, TextInput, StyleSheet, TouchableOpacity, Modal, Pressable } from 'react-native'
+import { View, Image, Text, TextInput, StyleSheet, TouchableOpacity, Modal, Pressable, KeyboardAvoidingView } from 'react-native'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 
@@ -26,6 +26,7 @@ const CreatePost: React.FC = () => {
     }
     const [isOn, setIsOn] = useState(false);
     return (
+              <KeyboardAvoidingView behavior="position">
         <View style={styles.container}>
             <Image style={styles.avatar} source={{ uri: ('https://www.bootdey.com/img/Content/avatar/avatar1.png') }} />
             <Field width={250} borderRadius={50} />
@@ -37,12 +38,15 @@ const CreatePost: React.FC = () => {
                 />
             </TouchableOpacity>
             <View >
+              
                 <Modal
                     animationType="slide"
                     transparent={true}
                     visible={modalVisible}
+                    onRequestClose={()=>{setModalVisible(!modalVisible)}}
                 >
                     <View style={styles.background}>
+
                         <View style={styles.modalView}>
                             <View
                             // style={{ backgroundColor: 'pink' }}
@@ -97,11 +101,13 @@ const CreatePost: React.FC = () => {
                 </Modal>
             </View>
         </View>
+                        </KeyboardAvoidingView>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
+       
         backgroundColor: Colors.white,
         flexDirection: 'row',
         alignItems: 'center',

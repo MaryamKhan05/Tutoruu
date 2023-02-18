@@ -57,3 +57,30 @@ export const Classes = [
 
 
 ]
+export const TutorSubjects = [
+   
+    {
+        id: 1,
+        name: 'Mact 210'
+    },
+    {
+        id: 2,
+        name: 'ACCT 102'
+    },
+    {
+        id: 3,
+        name: 'CSE-1029'
+    },
+    {
+        id: 4,
+        name: 'RHET-32'
+    },
+    {
+        id: 5,
+        name: 'RHETT-32'
+    },
+   
+   
+
+
+]

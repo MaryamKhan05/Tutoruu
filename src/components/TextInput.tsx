@@ -16,7 +16,7 @@ interface Props {
 const Input: React.FC<Props> = (props) => {
     return (
         <View className="my-0.5 w-full  ">
-            <Text className="text-center p-1 text-sm text-black font-bold self-start">
+            <Text className="text-center p-0.5 px-3 text-sm text-black font-bold self-start">
                 {props.title}
             </Text>
             <TextInput

@@ -3,7 +3,7 @@ import { SafeAreaView, TextInput, TouchableOpacity,Text, View,FlatList } from 'r
 
 
 
-import { Classes } from './DummyData';
+import { Classes, TutorSubjects } from './DummyData';
 
 
 import { FontAwesome } from '@expo/vector-icons';
@@ -42,8 +42,11 @@ const MarketPlace:React.FC<Props>=({navigation})=>{
  const[backgroundEnabled,setBackgroundEnabled]=useState(0)
     const[newClass,setNewClass]=useState('')
     return(
-<SafeAreaView className='flex-1 justify-center bg-white'>
-    <View  className='flex-1 '>
+
+
+
+    <View  className='flex-1 justify-center bg-white '>
+        <SafeAreaView/>
     <Username />
     <View style={{borderBottomWidth:2,margin:5,borderColor: Colors.gray}}></View>
     <Spacer/>
@@ -79,26 +82,33 @@ const MarketPlace:React.FC<Props>=({navigation})=>{
         />
         
     </View>
-    <View className='m-3 justify-center' >
-        <Text className='text-xl font-medium text-center m-5 self-start'>{Strings.ST80}</Text>
+    <View className='mx-3 ' >
+        <Text className='text-xl font-medium text-center m-3 self-start'>{Strings.ST80}</Text>
         <FlatList
-         style={{elevation:20,borderRadius:20,backgroundColor:Colors.white}}
+         style={{elevation:20,borderRadius:20, shadowRadius:10, backgroundColor:Colors.white}}
         data={sessions}
         renderItem={({item})=>{
             return(
               
                 <View
                
-                className='  h-fit p-5 '>
-<View className='flex-row gap-10 justify-between'>
+                className='  h-fit p-4 '>
+<View className='flex-row items-center h-fit justify-between'>
                     <Text
-                    style={{color:Colors.orange,backgroundColor:Colors.lightorange}}
-                    className='text-sm font-bold text-justify p-2 w-auto rounded-full' >{item.status}</Text>
-                    <Text className='text-sm font-bold text-justify  w-auto' >{item.time}</Text>
+                    style={{color:Colors.orange,backgroundColor:Colors.lightorange,textTransform:'uppercase'}}
+                    className='text-sm font-bold text-justify p-2 w-auto rounded-xl' >{item.status}</Text>
+                    <Text
+                    className='text-sm  text-justify font-medium w-auto' >{item.time}</Text>
     </View>
-                    <Text className='text-sm font-bold text-justify '>{item.type}</Text>
-                    <Text className='text-sm font-bold text-justify '>{item.day}</Text>
-                    <Text className='text-sm font-bold text-justify '>{item.title}</Text>
+                    <Text
+                    style={{color:Colors.orange,fontSize:14}}
+                    className=' font-bold text-sm text-justify '>{item.type}</Text>
+                    <Text
+                    style={{fontSize:16}}
+                    className='text-lg  font-normal text-justify '>{item.day}</Text>
+                    <Text
+                     
+                    className='text-sm text-justify '>{item.title}</Text>
                 </View>
                   
             )
@@ -112,10 +122,11 @@ const MarketPlace:React.FC<Props>=({navigation})=>{
         className='text-sm font-bold'>{Strings.ST81}</Text>
         </TouchableOpacity>
     </View>
-    <View>
+    <View className='mx-3  mb-10  justify-center' >
+    <Text  className='text-xl font-medium text-center mx-3 self-start'>{Strings.ST83}</Text>
         <TutorCard
-        image='https://www.bootdey.com/img/Content/avatar/avatar1.png'
-        data={classes}
+        image='dp'
+        data={TutorSubjects}
         name='Hamza'
         sessions='4'
         text='hamzaq is skjsk'
@@ -124,7 +135,7 @@ const MarketPlace:React.FC<Props>=({navigation})=>{
     </View>
 
     </View>
-</SafeAreaView>
+
     )
 
 }
