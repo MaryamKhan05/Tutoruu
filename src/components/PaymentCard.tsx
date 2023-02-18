@@ -1,8 +1,7 @@
 import React, { useContext } from "react";
 import { Text, View, StyleSheet } from "react-native";
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import Colors from "../../assets/Colors";
-
-
 import Languages from '../languages';
 import LanguageContext from '../languages/languageContext';
 import PaymentTag from "./PaymentTag";
@@ -15,7 +14,7 @@ const PaymentCard: React.FC<Props> = ({ text }) => {
     const language = contextState.language;
     const Strings = Languages[language].texts;
     return (
-        <View style={[styles.card, { width: 314, height: 110 }]}>
+        <View style={[styles.card, { width: wp('80%'), height: hp('13%') }]}>
             <PaymentTag text={text} />
             <Text style={[styles.text, { color: Colors.orange }]}>{Strings.ST45} </Text>
             <Text style={styles.day}>{Strings.ST46}</Text>
@@ -33,15 +32,16 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.white,
         alignSelf: 'center',
         borderRadius: 20,
-        padding: 15,
+        padding: hp('1.5%'),
+        // backgroundColor: 'red'
     },
     text: {
-        fontSize: 14,
+        fontSize: hp('1.6%'),
         fontWeight: '400',
         lineHeight: 21,
     },
     day: {
-        fontSize: 16,
+        fontSize: hp('1.8%'),
         fontWeight: '400',
         lineHeight: 24,
         color: Colors.black

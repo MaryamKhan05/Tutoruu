@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
-import { Text, View, SafeAreaView, FlatList, StyleSheet } from 'react-native'
+import { Text, View, FlatList, StyleSheet } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context';
 import Entypo from 'react-native-vector-icons/Entypo'
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 import Colors from "../../../assets/Colors";
 import Btn from "../../components/Button";
@@ -37,15 +39,8 @@ const messageData = [
 ]
 const PickClass: React.FC = ({ navigation }) => {
     const contextState = useContext(LanguageContext);
-    let Strings: any = {}
-  if (contextState != null) {
-
-    const  language = contextState.language
-      if (language === 'en') {
-          Strings = Languages[0].texts
-
-      }
-  }
+    const language = contextState.language;
+    const Strings = Languages[language].texts;
     return (
         <SafeAreaView style={styles.container}>
             <Header headerTitle={Strings.ST54} />
@@ -56,8 +51,10 @@ const PickClass: React.FC = ({ navigation }) => {
                     data={messageData}
                     renderItem={({ item }) => {
                         return (
-                            <View key={item.id} style={[styles.card, { width: 310, height: 143 }]}>
-                                <View style={{ flexDirection: 'row', height: '50%', width: '100%' }}>
+                            <View
+                                key={item.id}
+                                style={[styles.card, { width: wp('80%'), height: hp('18%') }]}>
+                                <View style={{ flexDirection: 'row' }}>
                                     <View style={styles.cardInner}>
                                         <Text style={[styles.text, { color: Colors.orange }]}>{item.status}</Text>
                                         <Text style={styles.day}>{item.subject}</Text>
@@ -69,9 +66,23 @@ const PickClass: React.FC = ({ navigation }) => {
                                             <Text style={styles.rating}>{item.rating}</Text>
                                             <Entypo name="star" size={15} color={Colors.orange} />
                                         </View>
-                                        <Text style={[styles.rating]}>{item.sessions} sessions</Text>
+                                        <View
+                                            style={{
+                                                flexDirection: 'row',
+                                                // backgroundColor: 'yellow',
+                                                width: wp('20%'),
+                                                // marginRight:wp('6%')
+
+                                            }}>
+
+                                            <Text style={[styles.rating]}>{item.sessions}</Text>
+                                            <Text style={styles.sessions}> sessions</Text>
+                                        </View>
+
                                     </View>
                                 </View>
+                                <Spacer />
+                                {/* <Spacer /> */}
                                 <Btn text={Strings.ST55} route={''} width={118} height={33} />
                             </View>
                         )
@@ -90,11 +101,11 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.white,
     },
     innerContainer: {
-        width: '99%',
-        height: '90%',
+        width: wp('99%'),
+        height: hp('85%'),
         alignSelf: 'center',
-        // margin: 10,
-        // marginTop: '30%'
+        paddingBottom: hp('2%'),
+        // backgroundColor: 'red'
     },
     card: {
         shadowColor: 'gray',
@@ -102,18 +113,23 @@ const styles = StyleSheet.create({
         shadowOffset: { width: 0, height: 2 },
         elevation: 2,
         backgroundColor: Colors.white,
+        // backgroundColor:'red',
         alignSelf: 'center',
         borderRadius: 20,
-        padding: 15,
-        margin: 20,
+        padding: hp('1.5%'),
+        margin: hp('2.2%'),
     },
     cardInner: {
-        width: '80%',
-        height: '60%'
+        width: wp('57%'),
+        height: hp('5%'),
+        // backgroundColor:'red',
     },
     smallerView: {
-        width: '20%',
-        height: '60%'
+        width: wp('15%'),
+        height: hp('5%'),
+        // backgroundColor:'pink',
+        // justifyContent:"center",
+        alignItems: 'center'
     },
     text: {
         fontSize: 12,
@@ -121,23 +137,32 @@ const styles = StyleSheet.create({
         lineHeight: 18,
     },
     day: {
-        fontSize: 16,
-        fontWeight: '400',
+        fontSize: hp('2%'),
+        fontWeight: '500',
         lineHeight: 24,
-        color: Colors.black
+        color: Colors.black,
+        // backgroundColor:'red'
     },
     fadedGray: {
-        fontSize: 12,
+        fontSize: hp('1.5%'),
         lineHeight: 18,
         fontWeight: '500',
         color: Colors.fadedgray
     },
     rating: {
         fontWeight: '400',
-        fontSize: 10,
+        fontSize: hp('1.3%'),
         lineHeight: 15,
-        color: Colors.orange
+        color: Colors.orange,
+        flexDirection: 'row',
+
     },
+    sessions: {
+        fontSize: 10,
+        fontWeight: '400',
+        lineHeight: 15,
+        color: Colors.fadedgray
+    }
 
 
 })

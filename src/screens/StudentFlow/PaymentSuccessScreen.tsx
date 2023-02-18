@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
-import { Text, View, SafeAreaView, StyleSheet, TouchableOpacity } from "react-native";
-
+import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import Colors from "../../../assets/Colors";
 import Completion from "../../components/Completion";
 import Divider from "../../components/Divider";
@@ -13,24 +14,21 @@ import LanguageContext from '../../languages/languageContext';
 
 const SuccessScreen: React.FC = () => {
     const contextState = useContext(LanguageContext);
-    let Strings: any = {}
-    if (contextState != null) {
-  
-      const  language = contextState.language
-        if (language === 'en') {
-            Strings = Languages[0].texts
-  
-        }
-    }
+    const language = contextState.language;
+    const Strings = Languages[language].texts;
     return (
         <SafeAreaView style={styles.container}>
             <Spacer />
             <Header headerTitle="Payment" />
             <View style={styles.innerContainer}>
-                <Completion image={require('../../../assets/payment.jpg')} text={Strings.ST41} color={Colors.orange} />
+                <Completion
+                    image={require('../../../assets/payment.jpg')}
+                    text={Strings.ST41}
+                    color={Colors.orange} />
+                <Spacer />
                 <View style={{ flexDirection: 'row', }}>
-                    <Text style={[styles.text, { marginLeft: '5%' }]}> {Strings.ST42} </Text>
-                    <Text style={[styles.text, { marginRight: '5%', fontWeight: 'bold' }]}>324 ECP</Text>
+                    <Text style={[styles.text, { marginLeft: hp('2%') }]}> {Strings.ST42} </Text>
+                    <Text style={[styles.text, { marginRight: hp('4%'), fontWeight: 'bold' }]}>324 ECP</Text>
                     <Text style={styles.text}> {Strings.ST43} </Text>
                     <Text style={[styles.text, { fontWeight: 'bold' }]}>{Strings.ST44} </Text>
                 </View>
@@ -38,8 +36,9 @@ const SuccessScreen: React.FC = () => {
                 <Divider />
                 <Spacer />
                 <Spacer />
-                <PaymentCard text={Strings.ST48}/>
-                <Spacer/>
+                <PaymentCard text={Strings.ST48} />
+                <Spacer />
+                <Spacer />
                 <TouchableOpacity style={styles.btn}>
                     <Text style={styles.btnText} > {Strings.ST49} </Text>
                 </TouchableOpacity>
@@ -54,26 +53,27 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.white,
     },
     innerContainer: {
-        width: '99%',
-        height: '100%',
+        width: wp('99%'),
+        height: hp('100%'),
         alignSelf: 'center',
-        margin: 10,
-        marginTop: '30%'
+        margin: hp('1%'),
+        marginTop: hp('10%'),
+        // backgroundColor:'red'
     },
     text: {
-        fontSize: 12,
+        fontSize: hp('1.5%'),
         fontWeight: '500',
         lineHeight: 18,
         color: Colors.black,
     },
-    btn:{
-        alignItems:'center'
+    btn: {
+        alignItems: 'center'
     },
-    btnText:{
-        fontSize:14,
-        fontWeight:'700',
-        lineHeight:21,
-        color:Colors.orange
+    btnText: {
+        fontSize: hp('1.8%'),
+        fontWeight: '700',
+        lineHeight: 21,
+        color: Colors.orange
     }
 
 })

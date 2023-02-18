@@ -1,11 +1,15 @@
-import React, { useContext } from "react";
-import { Text, View, SafeAreaView, FlatList, StyleSheet } from 'react-native'
-import Colors from "../../../assets/Colors";
-import Btn from "../../components/Button";
-import Header from "../../components/Header";
-import Spacer from "../../components/Spacer";
-import Languages from '../../languages';
-import LanguageContext from '../../languages/languageContext';
+import React, { useContext, useState } from "react"
+import { Text, View, FlatList, StyleSheet, TouchableOpacity } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+
+
+import Colors from "../../../assets/Colors"
+import Btn from "../../components/Button"
+import Header from "../../components/Header"
+import Spacer from "../../components/Spacer"
+import Languages from '../../languages'
+import LanguageContext from '../../languages/languageContext'
 const messageData = [
     {
         id: 1,
@@ -29,7 +33,7 @@ const messageData = [
         slots: '10',
         day: 'Sunday',
         date: 'November 20',
-        topic: 'General Explanation'
+        topic: 'Exam Revision'
     },
     {
         id: 3,
@@ -41,33 +45,63 @@ const messageData = [
         slots: '10',
         day: 'Sunday',
         date: 'November 20',
-        topic: 'General Explanation'
+        topic: 'Assignments'
+    },
+    {
+        id: 4,
+        status: 'online',
+        subject: 'Financial Management',
+        code: "FIN201",
+        rating: '4.74',
+        sessions: '13',
+        slots: '10',
+        day: 'Sunday',
+        date: 'November 20',
+        topic: 'Essays'
     },
 ]
-const PickTopic: React.FC = () => {
+
+interface Props{
+    id: number;
+    status: string;
+    subject: string;
+    code: string;
+    rating: string;
+    sessions: string;
+    slots: string;
+    day: string;
+    date: string;
+    topic: string;
+}
+const PickTopic: React.FC<Props> = () => {
     const contextState = useContext(LanguageContext);
-    let Strings: any = {}
-    if (contextState != null) {
-  
-      const  language = contextState.language
-        if (language === 'en') {
-            Strings = Languages[0].texts
-  
-        }
-    }
+    const language = contextState.language;
+    const Strings = Languages[language].texts;
+
+    const [focused, setFocused] = useState()
+
     return (
         <SafeAreaView style={styles.container}>
             <Header headerTitle={Strings.ST59} />
             <Spacer />
             <Spacer />
             <View style={styles.innerContainer}>
+                <View style={styles.view}>
+                    <Text style={styles.text}>{Strings.ST69}</Text>
+                </View>
+
                 <FlatList
                     data={messageData}
                     renderItem={({ item }) => {
+                        const background = item.id === focused ? styles.activeCard : styles.card;
+                        const text = item.id === focused ? Colors.orange : Colors.black;
                         return (
-                            <View key={item.id} style={[styles.card, { width: 318, height: 69 }]}>
-                                <Text style={styles.slots}>{item.topic}</Text>
-                            </View>
+                            <TouchableOpacity
+                                onPress={() => setFocused(item.id)}
+                                key={item.id}
+                                style={item.id === focused ? styles.activeCard : styles.card}>
+                                <Text style={[styles.slots, { color: text }]}>{item.topic}</Text>
+                            </TouchableOpacity>
                         )
                     }}
                     keyExtractor={item => item.id.toString()}
@@ -84,11 +118,10 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.white,
     },
     innerContainer: {
-        width: '99%',
-        height: '90%',
+        width: wp('99%'),
+        height: hp('85%'),
         alignSelf: 'center',
-        // margin: 10,
-        // marginTop: '30%'
+        paddingBottom: hp('2%')
     },
     card: {
         shadowColor: 'gray',
@@ -100,12 +133,43 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 20,
-        padding: 15,
-        margin: 20,
+        margin: 10,
+        width: wp('90%'),
+        height: hp('8%'),
+        // backgroundColor:'pink',
+        padding: wp('4%')
+    },
+    activeCard: {
+        backgroundColor: Colors.lightorange,
+        alignSelf: 'center',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 20,
+        padding: wp('4%'),
+        margin: 10,
+        width: wp('90%'),
+        height: hp('8%'),
     },
     topic: {
         fontWeight: '400',
         fontSize: 16,
+        lineHeight: 24
+    },
+    text: {
+        fontSize: hp('2%'),
+        fontWeight: '500',
+        lineHeight: 24
+    },
+    view: {
+        // backgroundColor: 'pink',
+        width: wp('90%'),
+        alignSelf: 'center',
+        alignItems: 'center',
+        marginVertical: hp('1%')
+    },
+    slots: {
+        fontWeight: '400',
+        fontSize: hp('2%'),
         lineHeight: 24
     }
 })
