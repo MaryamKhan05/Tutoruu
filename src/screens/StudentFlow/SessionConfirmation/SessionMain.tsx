@@ -21,7 +21,7 @@ const SessionConfirmationMain: React.FC = () => {
 
                 <Text
                     style={{ fontFamily: 'PoppinsMedium' }}
-                    className='mx-4 my-2 text-base'
+                    className='mx-6 my-2 text-base'
                 >Session Info</Text>
                 <FlatList
                     data={SessionInfo}
@@ -67,35 +67,36 @@ const SessionConfirmationMain: React.FC = () => {
                 />
             </View>
 
-            <View className='p-5 flex-row justify-between'>
-                <View>
-                    <View className=' gap-3'>
+            <View >
+            <Text
+                    style={{ fontFamily: 'PoppinsMedium' }}
+                    className='mx-6 my-2 text-base'
+                >Payment</Text>
+                <View className='px-6 pb-5 pt-1 flex-row justify-between items-center'>
+            
 
-                        <Text
-                            className='text-base'
-                            style={{ fontFamily: 'PoppinsMedium' }}>Payment</Text>
+                      
                         <Text
                             className='text-base'
                             style={{ fontFamily: 'PoppinsMedium' }}>170 EGP</Text>
-                    </View>
-
-                </View>
-                <View className='self-end'>
-                    <TouchableOpacity
+                              <TouchableOpacity
                         style={{ backgroundColor: Colors.orange }}
-                        className='px-6 py-2 rounded-full'
+                        className='px-8 py-1.5 rounded-full'
                     >
                         <Text
                             className='text-white'
                             style={{ fontFamily: 'PoppinsBold' }}>Pay Now</Text>
                     </TouchableOpacity>
+                    
+
                 </View>
+              
             </View>
 
             <View>
                 <Text
                     style={{ fontFamily: 'PoppinsMedium' }}
-                    className='mx-4 my-2 text-base'
+                    className='mx-6 my-2 text-base'
                 >Chat</Text>
                 <FlatList
                     data={ChatMessage}
@@ -147,27 +148,30 @@ const SessionConfirmationMain: React.FC = () => {
             <View>
                 <Text
                     style={{ fontFamily: 'PoppinsMedium' }}
-                    className='mx-4 my-2 text-base'
+                    className='mx-6 my-2 text-base'
                 >Tutor</Text>
                 <View className="w-auto rounded-3xl p-5 flex-row m-1 justify-between" style={{ elevation: 3, backgroundColor: Colors.white }}>
-                    <View className='flex-row justify-between gap-2'>
+                    
+                        <View className='flex-row justify-between gap-1'>
                         <Image
                             source={require('./../../../../assets/dp.jpg')}
                             resizeMode='contain'
                             className='rounded-full'
                         />
                         <View>
+
                             <Text
                                 style={{ fontFamily: 'PoppinsBold' }}
                                 className='text-base'
                             >{TutorInfo.Name}</Text>
                             <StarRatings />
                         </View>
+                        </View>
 
-                    </View>
+                    
                     <TouchableOpacity
                         style={{ backgroundColor: Colors.orange }}
-                        className='justify-center px-4 py-2 rounded-full'
+                        className='justify-center px-8 py-2 self-end items-center rounded-full'
                     >
                         <Text
                             style={{ fontFamily: 'PoppinsBold' }}
@@ -181,7 +185,7 @@ const SessionConfirmationMain: React.FC = () => {
             <View>
                 <Text
                     style={{ fontFamily: 'PoppinsMedium' }}
-                    className='mx-4 my-2 text-base'
+                    className='mx-6 my-2 text-base'
                 >Class</Text>
                 <FlatList
                     data={ClassInfo}
