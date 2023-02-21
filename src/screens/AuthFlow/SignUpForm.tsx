@@ -49,19 +49,21 @@ const SignUpForm: React.FC<Props> = ({ navigation }) => {
             className='flex-1 justify-center'>
                 <SafeAreaView/>
                 <StatusBar style='light' />
-                <View className=' h-20 justify-center m-3' >
+                <View className=' h-20 justify-center' >
                     <Image
                         source={require('../../../assets/authlogo.png')}
                         resizeMode='contain'
-                        className='h-40 w-40 self-center'
+                        className='h-48 w-48 self-center'
                     />
                 </View>
                 <View>
 
-                    <Text className='text-white text-2xl py-2 font-bold self-center'>
+                    <Text
+                    style={{fontFamily:'PoppinsBold'}}
+                    className='text-white text-2xl py-2  self-center'>
                         {Strings.ST72}
                     </Text>
-                    <View className='bg-white p-4 mx-4 my-2 justify-center rounded-xl'>
+                    <View className='bg-white p-3 mx-3 my-2 justify-center rounded-2xl'>
                         <Input
                             value={name}
                             title='Name'
@@ -74,8 +76,9 @@ const SignUpForm: React.FC<Props> = ({ navigation }) => {
                             placeholder='Enter Your Email'
                             onChangeText={(text) => { setEmail(text) }}
                         />
-                        <View className='flex-row justify-evenly'>
-<View  style={{flex:1}}>
+                        <View className='flex-row justify-between'>
+<View  style={{width:175}}
+>
 
                             <Input
                                 value={userName}
@@ -85,15 +88,16 @@ const SignUpForm: React.FC<Props> = ({ navigation }) => {
                             />
 </View>
                             <View 
-                            style={{justifyContent:'center'}}
-                            className=" flex-1 m-1 p-1">
+                          
+                            className=" flex-1 p-1 pl-5 ">
                                 <Text
-                                    className="text-center mx-3 font-bold  text-sm text-black self-start"
+                                 style={{fontFamily:'PoppinsMedium'}}
+                                    className="text-center mx-3  text-sm  self-start"
                                 >University</Text>
                                 <View
                                
-                                    className=" border border-gray-300 h-11 rounded-3xl"
-                                  style={{justifyContent:'center',marginVertical:5,marginHorizontal:10}}
+                                    className=" border border-gray-300 h-11 w-fit rounded-3xl"
+                                  style={{justifyContent:'center',marginVertical:5,}}
                                 >
                                     <Picker
                             placeholder='Select Your Uni'
@@ -104,7 +108,7 @@ const SignUpForm: React.FC<Props> = ({ navigation }) => {
                                            {
                                             setSelectedUni(itemValue)}
                                         }>
-                                        <Picker.Item label="Java" value="java" />
+                                        <Picker.Item label="Doe.." value="java" />
                                         <Picker.Item label="JavaScript" value="js" />
                                     </Picker>
                                 </View

@@ -8,6 +8,7 @@ import Languages from '../../languages'
 import LanguageContext from '../../languages/languageContext'
 
 import { AntDesign } from '@expo/vector-icons';
+import { EvilIcons } from '@expo/vector-icons';
 import RouteNames from '../RouteNames'
 
 import Colors from '../../../assets/Colors'
@@ -43,27 +44,35 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
 
         <View
             style={{ backgroundColor: Colors.orange }}
-            className=' justify-between flex-1'>
+            className=' flex-1 justify-between'>
             <StatusBar style='light' />
             <SafeAreaView />
 
-            <View className=' justify-center items-center p-10  h-20'>
+            <View 
+          
+            className=' justify-center items-center h-12'>
                 <Image
                     source={require('../../../assets/authlogo.png')}
                     resizeMode='contain'
-                    className='w-40 h-40'
+                    className='w-48 h-48'
                 />
 
 
             </View>
-            <View >
+            <View className=' py-3' >
+
 
                 <Text
-
-                    className='text-white p-2 text-2xl font-bold self-center'>
+                    className='text-white  text-xl  self-center'
+                        style={{textTransform:'capitalize',fontFamily:'PoppinsBold'}}>
                     {Strings.ST69}
                 </Text>
-                <View className='bg-white m-4 p-3 justify-center rounded-xl'>
+                
+                
+                <View 
+                style={{elevation:5,display:'flex'}}
+
+                className='bg-white m-4 px-3 py-5 pb-5 order-1 flex-grow-0 flex-none  justify-center rounded-2xl'>
                     <Input
                         value={email}
                         title='Email'
@@ -82,40 +91,57 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
                         title='Login'
                         onPress={() => {navigation.navigate('MainStackStudent') }}
                     />
-                    <View className='justify-center  justify-items-center flex-row gap-3'>
+                    <View className='justify-center  justify-items-center flex-row gap-4'>
 
-                        <TouchableOpacity>
+                        <TouchableOpacity
+                        className='bg-white rounded-full'
+                        style={{elevation:8,}}
+                        >
+                            <View className='h-10 w-10 m-2 p-0 items-center justify-center'>
+
                             <Image
                                 source={require('./../../../assets/googlelogo.png')}
                                 resizeMode='contain'
-                                className='rounded-full h-10 w-10 m-2'
+                                className='rounded-full h-7 w-7 m-2'
                             />
+                            </View>
                         </TouchableOpacity>
-                        <TouchableOpacity>
-                            <Image
+                        <TouchableOpacity
+                        className=' rounded-full justify-center'
+                        style={{backgroundColor:Colors.blue,elevation:8,shadowColor:Colors.white}}
+                        >
+                            {/* <Image
                                 source={require('./../../../assets/facebooklogo.png')}
                                 resizeMode='contain'
                                 className='rounded-full h-10 w-10 m-2'
-                            />
+                            /> */}
+                            <View className='h-10 w-10 m-2  items-center justify-center'>
+
+                            <EvilIcons   name="sc-facebook" size={42} color="white" />
+                            </View>
                         </TouchableOpacity>
                     </View>
 
                 </View>
-                <View className='flex-row justify-center items-center'>
-                    <Text className='text-white text-sm self-center'>
+                <View className='flex-row  justify-center items-center'>
+                    <Text
+                     style={{fontFamily:'PoppinsRegular'}}
+                    className='text-white text-sm font-medium self-center'>
                         {Strings.ST70}
                     </Text>
                     <TouchableOpacity
                         onPress={() => { navigation.navigate(RouteNames.SignUpHome) }}
                     >
-                        <Text className='text-white text-sm border-b-2 border-white font-bold self-center'>
+                        <Text 
+                        style={{fontFamily:'PoppinsSemiBold'}}
+                        className='text-white text-sm border-b-2 border-white  self-center'>
                             Sign Up
                         </Text>
                     </TouchableOpacity>
 
                 </View>
             </View>
-            <View className='py-10'>
+            <View className='my-2 py-10'>
 
 
                 <TouchableOpacity
@@ -123,7 +149,9 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
                     onPress={() => { navigation.navigate(RouteNames.ForgetPassword) }}
                 >
 
-                    <Text className='text-white text-sm  self-center'>
+                    <Text 
+                    style={{fontFamily:'PoppinsRegular'}}
+                    className='text-white text-sm  self-center'>
                         {Strings.ST71}
                     </Text>
                 </TouchableOpacity>

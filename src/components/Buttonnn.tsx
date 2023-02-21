@@ -35,14 +35,14 @@ const Button: React.FC<Props> = (props) => {
         
 
         <TouchableOpacity
-        style={{backgroundColor:props.color,elevation:5}}
-            className="  p-3 my-1.5 rounded-full justify-center"
+        style={{backgroundColor: props.color,elevation:5}}
+            className=" h-12 px-3 my-3 rounded-full justify-center"
             onPress={props.onPress}
         >
          {
 props.image == undefined || null? <Text
-style={{color: props.titleColor?props.titleColor:'white' ,alignSelf:'center'}}
-className="text-lg font-bold text-white">
+style={{color: props.titleColor?props.titleColor:'white' ,alignSelf:'center',fontFamily:'PoppinsSemiBold'}}
+className="text-lg  text-white">
     {props.title}
 </Text> 
         :
@@ -57,8 +57,8 @@ className="text-lg font-bold text-white">
            <View className= "w-full items-start">
 
             <Text
-            style={{color: props.titleColor?props.titleColor:'white',fontSize:props.textSize?props.textSize:18,textAlign:'center'}}
-            className="  mx-1 font-bold text-white self-center">
+            style={{color: props.titleColor?props.titleColor:'white',fontSize:props.textSize?props.textSize:14,fontFamily:'PoppinsBold',textAlign:'center'}}
+            className="  mx-1 text-white self-center text-right">
                 {props.title}
             </Text>
            </View>

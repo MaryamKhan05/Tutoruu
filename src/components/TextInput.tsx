@@ -16,12 +16,14 @@ interface Props {
 const Input: React.FC<Props> = (props) => {
     return (
         <View className="my-0.5 w-full  ">
-            <Text className="text-center p-0.5 px-3 text-sm text-black font-bold self-start">
+            <Text
+            style={{fontFamily:'PoppinsMedium'}}
+            className="text-center p-0.5 px-5 text-sm text-black  self-start">
                 {props.title}
             </Text>
             <TextInput
-         
-            className=" h-11  p-3 my-1 text-sm  border border-gray-300 rounded-3xl"
+         style={{fontFamily:'PoppinsRegular'}}
+            className=" h-13  px-5 py-2 my-1 text-sm  border border-gray-300 rounded-3xl"
             value={props.value}    
             secureTextEntry={props.secureTextEntry || false}
                 onChangeText={props.onChangeText}

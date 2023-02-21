@@ -35,29 +35,36 @@ const SignUpHome: React.FC<Props> = ({ navigation }) => {
     }
     return (
   
+        <SafeAreaView style={{flex:1,backgroundColor:Colors.orange,justifyContent:'space-around'}}>
 
-        <View
-        style={{ backgroundColor: Colors.orange }}
-        className=' justify-between flex-1'>
+<View
+        style={{ flex:1 }}
+        className='justify-evenly'>
                 <StatusBar style='light' />
-                <SafeAreaView/>
-                <View className='justify-start items-center  '>
-                <Image
-                    source={require('../../../assets/authlogo.png')}
-                    resizeMode='contain'
-                    className='w-40 h-40 '
-                />
+                
+                <View 
+          style={{flex:0.2}}
+          className=' mt-3 items-center'>
+              <Image
+                  source={require('../../../assets/authlogo.png')}
+                  resizeMode='contain'
+                  className='w-48 h-48'
+              />
 
 
-            </View>
-                <View className='flex-1 justify-center' >
+          </View>
+                <View 
+               style={{flex:0.8}}
+                className=' justify-center' >
 
-                    <Text className='text-white text-2xl font-bold self-center'>
+                    <Text
+                    style={{fontFamily:'PoppinsSemiBold'}}
+                    className='text-white text-2xl self-center'>
                         {Strings.ST72}
                     </Text>
                     <View
                     style={{backgroundColor:Colors.white}}
-                    className='m-3 py-5 px-2 justify-center rounded-2xl'>
+                    className='m-3 px-2 py-3 justify-center rounded-2xl'>
                         <Button
                       
                             color={Colors.white}
@@ -86,13 +93,17 @@ image='arrowright'
 
                     </View>
                     <View className='flex-row justify-center items-center'>
-                        <Text className='text-white text-sm  self-center'>
+                        <Text 
+                         style={{fontFamily:'PoppinsRegular'}}
+                        className='text-white text-sm  self-center'>
                             {Strings.ST73}
                         </Text>
                         <TouchableOpacity
                             onPress={() => { navigation.navigate(RouteNames.LoginScreen) }}
                         >
-                            <Text className='text-white text-sm border-b-2 border-white font-bold self-center'>
+                            <Text
+                            style={{fontFamily:'PoppinsSemiBold'}}
+                            className='text-white text-sm border-b-2 border-white  self-center'>
                                 Login
                             </Text>
                         </TouchableOpacity>
@@ -100,6 +111,9 @@ image='arrowright'
                     </View>
                 </View>
             </View>
+</SafeAreaView>
+        
+
     
     )
 }
