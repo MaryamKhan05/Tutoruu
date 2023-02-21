@@ -3,12 +3,12 @@ import React,{useState} from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import AuthStack from './AuthStack';
-import MainStack from './mainStackStudent';
+import MainStack from './AppStackStudent';
 const stack = createNativeStackNavigator()
 
 
 const StudentStackMain: React.FC = () => {
-    const  [user,setUser]=useState(false)
+    const  [user,setUser]=useState(true)
     return (
         
         <stack.Navigator screenOptions={{headerShown:false}}>

@@ -84,3 +84,35 @@ export const TutorSubjects = [
 
 
 ]
+export const SessionInfo=[
+    {
+        id: 0,
+        Timing: '1pm on Tuesday 11/12',
+        Location: 'https://zoom.us/j/4852701794',
+        Topic: 'Exam Revision'
+    }
+]
+export const ChatMessage=[
+    {
+        id: 0,
+        Name: 'Victoria Hanson',
+        Message: 'Got it!! Thanks :)',
+        Time: '3 hrs ago',
+        messageNo: '2'
+    }
+]
+export const ClassInfo=[
+    {
+        id: 0,
+        Title: 'CSCE 1520',
+        Desc: 'Introduction to Computer Science',
+    
+    }
+]
+export const TutorInfo=
+    {
+        id: 0,
+        Name: 'Youssef Harron',
+        
+    
+    }

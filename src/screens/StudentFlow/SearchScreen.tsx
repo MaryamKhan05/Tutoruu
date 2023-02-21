@@ -37,15 +37,28 @@ const SearchScreen: React.FC = () => {
         }
     }
     return (
-        <SafeAreaView style={styles.container} >
+       
+            <View 
+            style={{backgroundColor:Colors.white}}
+            className="flex-1 justify-evenly ">
+ <SafeAreaView / >
+    <View>
+
             <Header headerTitle="Search" />
+    </View>
+    <View 
+    style={{flex:0.9}}
+   >
+
             <View style={styles.innerContainer}>
             <Spacer />
             <Bar/>
             <Spacer />
             <CardList view={Strings.ST31} />
             </View>
-        </SafeAreaView>
+    </View>
+                </View>
+   
     )
 }
 const styles = StyleSheet.create({

@@ -128,7 +128,8 @@ keyExtractor={(item:{id:{toString: ()=> any}})=>{return  item.id.toString()}}
                 </TouchableOpacity>
 
 </View>
-<View style={{alignItems:'flex-end'}}>
+<View style={{width:65,height:65,justifyContent:'center', bottom:50,borderRadius:50,shadowRadius:10,shadowColor:Colors.white,elevation:10,alignItems:'flex-end',alignSelf:'flex-end',backgroundColor:Colors.lightorange}}>
+    <Text className="self-center text-sm font-bold">270EGP</Text>
 {/* <Image
             source={require('../../assets/tutorCardPic.png')}
             style={{width:100,height:50,bottom:30,alignItems:'flex-end',alignSelf:'flex-end'}}

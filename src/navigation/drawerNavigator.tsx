@@ -12,8 +12,9 @@ import AboutScreen from '../screens/StudentFlow/AboutScreen';
 import SupportScreen from '../screens/StudentFlow/SupportScreen';
 import ProfileScreen from '../screens/StudentFlow/ProfileScreen';
 import SettingsScreen from '../screens/StudentFlow/SettingsScreen';
-import MarketPlace from '../screens/StudentFlow/MarketPlace';
+import MarketPlace from '../screens/StudentFlow/MarketPlace/MarketPlace';
 import Bubble from '../components/IconBubble';
+import SessionConfirmationMain from '../screens/StudentFlow/SessionConfirmation/SessionMain';
 
 const Drawer = createDrawerNavigator();
 
@@ -130,6 +131,20 @@ headerTitleAlign:'center',
         component={ProfileScreen}
         options={{
           headerShown: (false),
+          drawerIcon: ({ focused, size }) => (
+            <AntDesign
+              name="user"
+              size={size}
+              color={Colors.black}
+            />
+          )
+        }} />
+         <Drawer.Screen
+        name='SessionConfirmationMain'
+        component={SessionConfirmationMain}
+        options={{
+          headerShown: (false),
+          drawerLabel:'Session Confirmation',
           drawerIcon: ({ focused, size }) => (
             <AntDesign
               name="user"

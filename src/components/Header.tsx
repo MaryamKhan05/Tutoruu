@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet,SafeAreaView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 
@@ -10,19 +10,34 @@ interface Props {
 const Header: React.FC<Props> = ({ headerTitle }) => {
     const navigation = useNavigation()
     return (
-        <View style={{ flexDirection: 'row' }}>
-            <TouchableOpacity onPress={() => navigation.goBack()} >
-                <FontAwesome name="chevron-left" style={styles.back} />
+        <View style={{ flexDirection: 'row',alignItems:'center' }}
+        className='gap-5 p-2'
+        >
+             
+                <View>
+
+            <TouchableOpacity 
+           
+            onPress={() => navigation.goBack()} >
+                <FontAwesome name="chevron-left"  style={styles.back} />
             </TouchableOpacity>
-            <Text style={styles.header} > {headerTitle} </Text>
+                </View>
+                <View className='p-5' style={{flex:0.8}}>
+
+            <Text 
+            
+            style={{fontFamily:'PoppinsRegular'}} className='self-center ' > {headerTitle} </Text>
+                </View>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
     back: {
-        fontSize: 18,
-        marginLeft: 22
+        fontSize: 24,
+        marginVertical:5,
+        marginLeft: 22,
+        top:12
     },
     header: {
         alignSelf: 'center',

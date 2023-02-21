@@ -50,6 +50,7 @@ const CreatePost: React.FC = () => {
                     animationType="slide"
                     transparent={true}
                     visible={modalVisible}
+                    onRequestClose={()=>{setModalVisible(!modalVisible)}}
                 >
                     <View style={styles.background}>
                         <View style={styles.modalView}>

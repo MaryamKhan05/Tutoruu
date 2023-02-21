@@ -1,18 +1,18 @@
 import React,{useState,useContext} from 'react'
-import { SafeAreaView, TextInput, TouchableOpacity,Text, View,FlatList } from 'react-native'
+import { SafeAreaView, TextInput, TouchableOpacity,Text, View,FlatList, KeyboardAvoidingView } from 'react-native'
 
 
 
-import { Classes, TutorSubjects } from './DummyData';
+import { Classes, TutorSubjects } from '../DummyData';
 
 
 import { FontAwesome } from '@expo/vector-icons';
-import LanguageContext from '../../languages/languageContext';
-import Languages from '../../languages';
-import Colors from '../../../assets/Colors';
-import Username from '../../components/UserName';
-import Spacer from '../../components/Spacer';
-import TutorCard from '../../components/TutorCard';
+import LanguageContext from '../../../languages/languageContext';
+import Languages from '../../../languages';
+import Colors from '../../../../assets/Colors';
+import Username from '../../../components/UserName';
+import Spacer from '../../../components/Spacer';
+import TutorCard from '../../../components/TutorCard';
 
 const sessions=[
     {
@@ -54,10 +54,12 @@ const MarketPlace:React.FC<Props>=({navigation})=>{
 
 
     <View  className='flex-1 justify-center bg-white '>
+    <KeyboardAvoidingView behavior='height'>
         <SafeAreaView/>
     <Username />
     <View style={{borderBottomWidth:2,margin:5,borderColor: Colors.gray}}></View>
     <Spacer/>
+
     <View className='flex-row w-fit justify-between items-center gap-x-4 h-12 m-4 my-1  p-3 rounded-full border border-gray-300'>
 
     <TextInput
@@ -72,6 +74,7 @@ const MarketPlace:React.FC<Props>=({navigation})=>{
     <FontAwesome name="plus" size={24}  color={Colors.gray}  />
     </TouchableOpacity>
     </View>
+   
     <View>
         <FlatList
         data={classes}
@@ -141,7 +144,7 @@ const MarketPlace:React.FC<Props>=({navigation})=>{
         key={'hamza'}
         />
     </View>
-
+    </KeyboardAvoidingView>
     </View>
 
     )

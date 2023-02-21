@@ -5,12 +5,12 @@ import { Rating, AirbnbRating } from 'react-native-ratings';
 
 import Colors from '../../assets/Colors'
 const StarRatings:React.FC =()=>{
-    const [starCount,setStartCount]=useState(3.5)
+    const [starCount,setStartCount]=useState(5)
 const onStarRatingPress=(rating: number)=>{
     setStartCount(rating)
 }
     return(
-<View >
+<View  >
 {/* <StarRating
 emptyStarColor='white'
 fullStar={'yellow'}
@@ -20,8 +20,10 @@ fullStar={'yellow'}
         selectedStar={(rating) => onStarRatingPress(rating)}
       /> */}
       <AirbnbRating
+      starContainerStyle={{alignSelf:'flex-start'}}
 reviewColor={Colors.orange}
 showRating={false}
+defaultRating={5}
 selectedColor={Colors.orange}
       count={5}
       size={15}
