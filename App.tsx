@@ -4,7 +4,10 @@ import React, { useCallback } from 'react';
 import LanguageContext from './src/languages/languageContext';
 import StudentStackMain from './src/navigation/StudentMainStack';
 import { NavigationContainer } from '@react-navigation/native';
-
+import { View } from 'react-native';
+import MainStack from './src/navigation/mainStackStudent';
+import SplashScreen from 'expo-splash-screen'
+import { useFonts } from 'expo-font';
 const App: React.FC = () => {
  
   return (
