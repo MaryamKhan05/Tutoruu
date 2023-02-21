@@ -4,16 +4,14 @@ import React, { useCallback } from 'react';
 import LanguageContext from './src/languages/languageContext';
 import StudentStackMain from './src/navigation/StudentMainStack';
 import { NavigationContainer } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import * as SplashScreen from 'expo-splash-screen';
-import {View} from 'react-native'
 
 const App: React.FC = () => {
  
   return (
     <NavigationContainer>
 
-      <StudentStackMain/>
+      {/* <StudentStackMain/> */}
+      <MainStack/>
     </NavigationContainer>
   );
 }
