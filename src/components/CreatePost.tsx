@@ -34,7 +34,6 @@ const CreatePost: React.FC = () => {
     }
     const [isOn, setIsOn] = useState(false);
     return (
-              <KeyboardAvoidingView behavior="position">
         <View style={styles.container}>
             <Image style={styles.avatar} source={{ uri: ('https://www.bootdey.com/img/Content/avatar/avatar1.png') }} />
             <Field width={250} borderRadius={50} />
@@ -46,16 +45,14 @@ const CreatePost: React.FC = () => {
                 />
             </TouchableOpacity>
             <View >
-              
                 <Modal
                     animationType="slide"
                     transparent={true}
                     visible={modalVisible}
-                    onRequestClose={()=>{setModalVisible(!modalVisible)}}
                 >
                     <View style={styles.background}>
-
                         <View style={styles.modalView}>
+                            {/* Modal content goes here */}
                             <View
                             // style={{ backgroundColor: 'pink' }}
                             >
@@ -82,34 +79,34 @@ const CreatePost: React.FC = () => {
                                     <Auc text="GENERAL" width={95} height={30} />
                                 </View>
                                 <Spacer />
-                                <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                                    <Text style={[styles.tags, { marginTop: 5 }]}>{Strings.ST67}</Text>
-                                    <TouchableOpacity
-                                        onPress={() => setIsOn(!isOn)}
-                                        style={{ marginRight: '5%' }}
-                                    >
-                                        {isOn ?
-                                            (<FontAwesome name="toggle-on" size={40} color={Colors.orange} />)
-                                            :
-                                            (<FontAwesome name="toggle-off" size={40} color={Colors.orange} />)
-                                        }
+                                {/* <KeyboardAvoidingView
+                                    // behavior={Platform.OS === 'ios' ? 'padding' : 'position'}
+                                    behavior="position"
+                                    style={styles.innercontainer}
+                                > */}
+                                    <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                                        <Text style={[styles.tags, { marginTop: 5 }]}>{Strings.ST67}</Text>
+                                        <TouchableOpacity
+                                            onPress={() => setIsOn(!isOn)}
+                                            style={{ marginRight: '5%' }}
+                                        >
+                                            {isOn ?
+                                                (<FontAwesome name="toggle-on" size={40} color={Colors.orange} />)
+                                                :
+                                                (<FontAwesome name="toggle-off" size={40} color={Colors.orange} />)
+                                            }
+                                        </TouchableOpacity>
+                                    </View>
+                                    <TouchableOpacity>
+                                        <Btn text={Strings.ST68} width={328} height={41} route={''} />
                                     </TouchableOpacity>
-                                </View>
-                                <TouchableOpacity>
-                                    <Btn text={Strings.ST68} width={328} height={41} route={''} />
-                                </TouchableOpacity>
-                                {/* <Pressable
-                                style={[styles.button, styles.buttonClose]}
-                                onPress={() => setModalVisible(!modalVisible)}>
-                                <Text style={styles.textStyle}>Hide Modal</Text>
-                            </Pressable> */}
+                                {/* </KeyboardAvoidingView> */}
                             </View>
                         </View>
                     </View>
                 </Modal>
             </View>
         </View>
-                        </KeyboardAvoidingView>
     )
 }
 
